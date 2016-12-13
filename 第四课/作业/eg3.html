@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" value="展开" id="btn">
+<input type="button" value="收缩" id="btn1">
+<textarea name="" id="text2" cols="30" rows="10"></textarea>
+</body>
+<script>
+    window.onload=function () {
+        var btn = document.getElementById('btn');
+        var time=null;
+        var time1=null;
+
+        var str1='您充分了解并同意';
+        var str2='';
+        var arr1=[];
+        var arr2=[];
+        for(var i=0;i<str1.length;i++){
+            arr1.push(str1.charAt(i));
+        }
+        for(var i=0;i<str2.length;i++){
+            arr2.push(str2.charAt(i));
+        }
+        btn.onclick = function () {
+            clearTimeout(time1);
+            var text2 = document.getElementById('text2');
+            str2=text2.value;
+
+            var c='';
+
+            if(arr1.length>0){
+
+                time=setInterval(function () {
+                    if(arr1.length<2){
+                        clearTimeout(time);
+                    }
+                    text2.value='';
+                    str1='';
+                    c=arr1.shift();
+                    arr2.push(c);
+                    for(var i=0;i<arr2.length;i++){
+                        text2.value+=arr2[i];
+                    }
+                    for(var i=0;i<arr1.length;i++){
+                        str1+=arr1[i];
+                    }
+                },500);
+
+            }
+
+        }
+        btn1.onclick = function () {
+            clearTimeout(time);
+            var text2 = document.getElementById('text2');
+            var str2=text2.value;
+
+            var c='';
+
+            if(arr2.length>0){
+
+                time1=setInterval(function () {
+                    if(arr2.length<2){
+                        clearTimeout(time1);
+                    }
+
+                    str1='';
+                    text2.value='';
+                    c=arr2.pop();
+                    arr1.unshift(c);
+                    for(var i=0;i<arr2.length;i++){
+                        text2.value+=arr2[i];
+                    }
+                    for(var i=0;i<arr1.length;i++){
+                        str1+=arr1[i];
+                    }
+                },500);
+
+            }
+
+        }
+    }
+</script>
+</html>

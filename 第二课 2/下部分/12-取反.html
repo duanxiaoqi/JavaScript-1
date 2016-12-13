@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementsByTagName('input')[0];
+	var b=true;
+	
+	oBtn.onclick=function(){
+		//if(oBtn.value=='显示'){
+		if(b){
+			oBtn.value='隐藏';
+		}else{
+			oBtn.value='显示';
+		}
+		b=!b;
+	};
+};
+</script>
+</head>
+
+<body>
+
+<input type="button" value="显示" />
+
+</body>
+</html>

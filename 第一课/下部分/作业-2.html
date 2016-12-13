@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+input { background:none; }
+.active { background:yellow; }
+</style>
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	var oSpan=document.getElementsByTagName('span')[0];
+	var aA=document.getElementsByTagName('a');
+	var oImg=document.getElementsByTagName('img')[0];
+	var oP=document.getElementsByTagName('p')[0];
+	var arr=['图片一','图片二','图片三'];
+	var add=['img/a1.jpg','img/a2.jpg','img/a3.jpg'];
+	var num=0;
+	oSpan.innerHTML='1/'+add.length;
+	oP.innerHTML=arr[0];
+	for(var i=0;i<aInput.length;i++)
+	{
+			aInput[i].index=i;
+			aInput[i].onclick=function()
+			{
+				num=this.index;
+				fn1();
+			};
+	}
+	function fn1()
+	{
+		for(var i=0;i<aInput.length;i++)
+		{
+			aInput[i].className='';
+		}
+		aInput[num].className='active';
+		oImg.src=add[num];
+		oSpan.innerHTML=(num+1)+'/'+add.length;
+		oP.innerHTML=arr[num];
+	};
+	aA[0].onclick=function()
+	{
+		num--;
+		if(num<0)
+		{
+			num=add.length-1;
+		}
+		fn1();
+	};
+	aA[1].onclick=function()
+	{
+		num++;
+		if(num==add.length)
+		{
+			num=0;
+		}
+		fn1();
+	};
+};
+</script>
+</head>
+
+<body>
+
+<input class="active" type="button" value="img1" />
+<input type="button" value="img2" />
+<input type="button" value="img3" />
+<span>图片数量正在加载中……</span>
+
+<a href="javascript:;">prev</a>
+<a href="javascript:;">next</a>
+
+<p>图片说明正在加载中……</p>
+<img src="img/a1.jpg" width="400" />
+
+</body>
+</html>

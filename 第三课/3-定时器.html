@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+/*
+JS定时器：
+1、setInterval()	每隔一段时间，执行一些命令（重复执行 - 发动机）
+	 clearInterval()
+2、setTimeout()	过多久以后，执行一次（一次就完事 - 炸弹）
+	 clearTimeout()
+*/
+/*
+var timer=null;
+var n=0;
+timer=setInterval(function(){
+	if(n==10){
+		clearInterval(timer);
+	}else{
+		n++;
+		alert(n);  //10
+	}
+}, 1000);
+*/
+
+//alert( timer );
+
+window.onload=function(){
+	var oUl=document.getElementById('ul1');
+	var oBtn=document.getElementsByTagName('input')[0];
+	
+	//for(){} 非常快的速度，全部执行完毕
+	//定时器，时间间隔是你可以指定
+	
+	//1、如果要开定时器，先考虑什么时候关掉！
+	//2、设置目标点
+	var n=0;
+	var timer=null;
+	oBtn.onclick=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			if(n==20){
+				clearInterval(timer);
+			}else{
+				oUl.innerHTML+='<li>'+n+'</li>';
+				n++;
+			}
+		}, 1000);
+	
+	}
+};
+
+</script>
+<style>
+li { height:20px; border:1px solid #333; margin-bottom:2px; }
+</style>
+</head>
+
+<body>
+<input type="button" value="btn1" />
+<ul id="ul1"></ul>
+
+</body>
+</html>

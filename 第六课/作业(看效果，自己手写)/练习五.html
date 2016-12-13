@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+ul,li,p,body{padding:0;margin:0;list-style:none}
+.left{ cursor:url('arr_left.cur'),auto;}
+.right{ cursor:url('arr_right.cur'),auto;}
+#main{width:600px;margin:60px auto;}
+#main p{width:300px;height:200px;overflow:hidden;margin-left:230px;}
+#ul1{width:860px;height:100px;margin-top:30px;}
+#ul1 li{float:left;margin-right:6px;width:130px;height:100px;padding:3px;}
+#ul1 li.active{border:3px solid red;padding:0;}
+#ul1 img{width:130px;height:100px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oImg=document.getElementById('img1');
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.getElementsByTagName('li');
+	var n=0;
+	oImg.onmousemove=function(ev)
+	{
+		var ev=ev||event;
+		if(ev.clientX<oImg.offsetLeft+oImg.offsetWidth/2)
+		{
+			oImg.className='left';	
+		}
+		else
+		{
+			oImg.className='right';
+		}
+	}
+	oImg.onclick=function(ev)
+	{
+		var ev=ev||event;
+		if(ev.clientX<oImg.offsetLeft+oImg.offsetWidth/2)
+		{
+			oImg.className='left';	
+			if(n==0)
+			{
+				n=aLi.length;
+			}
+			n--;
+			fn1();
+		}
+		else
+		{
+			n++;
+			if(n==aLi.length)
+			{
+				n=0;
+			}
+			fn1();
+		}
+	}
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onclick=function()
+		{
+			n=this.index;
+			fn1();
+		}
+	}
+
+	function fn1()
+	{
+		for(var i=0;i<aLi.length;i++)
+		{
+			aLi[i].className='';
+		}
+		aLi[n].className='active';
+		var aImg=aLi[n].getElementsByTagName('img')[0];
+		oImg.src=aImg.src;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="main">
+	<p><img src="img/1.png"  alt="" id="img1"></p>
+	<ul id="ul1">
+		<li class="active"><img src="img/1.png" alt=""></li>
+		<li><img src="img/2.png" alt=""></li>
+		<li><img src="img/3.png" alt=""></li>
+		<li><img src="img/4.png" alt=""></li>
+		<li><img src="img/5.png" alt=""></li>
+		<li><img src="img/6.png" alt=""></li>
+	</ul>
+	</div>
+</body>
+</html>

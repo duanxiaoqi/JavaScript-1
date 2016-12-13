@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<!--
+
+作用域：在什么样的范围内，你可以进行读、写操作
+域：范围、区域
+作用：读、写
+-->
+
+<script>
+//alert(a);			//未定义
+var a=1;
+fn1();
+function fn1(){ alert(1); }
+var fn1=function(){ alert(3); };
+fn1();
+
+function fn1(){ alert(2); }
+
+/*
+浏览器解析JS的时候，可以理解为：
+1、先收集
+2、再执行
+
+优先级
+
+*/
+</script>
+
+</head>
+
+<body>
+
+<style>
+div {}
+#div1 {}
+.box {}
+
+/*div > .box > #div1 > 行间样式*/
+</style>
+
+<div id="div1" class="box" style="color:red">123</div>
+
+</body>
+</html>

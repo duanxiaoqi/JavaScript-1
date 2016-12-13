@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+#ad { width:966px; height:0; overflow:hidden; background:url(img/ad.png) center center; margin:0 auto; }
+body { margin:0; text-align:center; }
+</style>
+
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById('ad');
+	
+	var n=0;
+	var target=400;
+	var timer=null;
+	
+	setTimeout(function(){
+		
+		timer=setInterval(function(){
+			if(n==target){
+				clearInterval(timer);
+				
+				n=400;
+				target=0;
+				setTimeout(function(){
+					
+					timer=setInterval(function(){
+						if(n==target){
+							clearInterval(timer);
+						}else{
+							n-=7;
+							if(n<=target){
+								n=target;
+							}
+							oDiv.style.height=n+'px';
+						}
+					}, 20);
+					
+				}, 4000);
+				
+			}else{
+				n+=7;
+				if(n>=target){
+					n=target;
+				}
+				oDiv.style.height=n+'px';
+			}
+		}, 20);
+		
+	}, 2000);
+};
+</script>
+
+</head>
+
+<body style="height:2000px;">
+
+<div id="ad"></div>
+<img src="img/html.png" />
+
+</body>
+</html>

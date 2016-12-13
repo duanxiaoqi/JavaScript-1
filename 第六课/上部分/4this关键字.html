@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+//this : 谁调用的this就指向谁
+
+function test(){
+	alert(this);
+}
+
+//test();  //window(如果函数名前面没任何东西，就隐藏了一个window)
+
+oDiv.test();  //oDiv
+
+arr.test(); //arr
+
+json.test();  //json
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+/*
+JavaScript的组成：
+1、ECMAScript	标准（JS、AS）
+2、DOM			文档对象模型
+3、BOM				浏览器对象模型
+
+JS兼容性的问题：
+ECMAScript 几乎没有
+DOM			  65%以上，存在兼容性问题（极少有解决不了的）
+BOM			  极其少量的方法，是没有问题
+
+需求：涉及到要动BOM的时候，尽量的扯到DOM身上来
+
+*/
+
+window.onscroll=function(){
+	document.title=document.documentElement.scrollTop;
+};
+</script>
+
+</head>
+
+<body style="height:2000px;">
+
+	<div id="div1"></div>
+
+</body>
+</html>

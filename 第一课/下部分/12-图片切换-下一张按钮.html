@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function(){
+	var aBtn=document.getElementsByTagName('input');
+	var oImg=document.getElementsByTagName('img')[0];
+	var oP=document.getElementsByTagName('p')[0];
+	var oSpan=document.getElementsByTagName('span')[0];
+	var oA=document.getElementsByTagName('a')[0];
+	var arr=['img/a1.jpg', 'img/a2.jpg', 'img/a3.jpg'];
+	var arrText=['图片一', '图片二', '图片三'];
+	var num=0;
+	
+	//需要控制一组元素的时候，用一个数字（多组开关都去改变它！）
+	
+	//初使化
+	oSpan.innerHTML='1/'+arr.length;
+	oP.innerHTML=arrText[0];
+	
+	for(var i=0; i<aBtn.length; i++){
+		aBtn[i].index=i;				//添加索引值
+		aBtn[i].onclick=function(){
+			num=this.index;
+			fn1();
+		};
+	}
+	
+	/*
+		1、干掉this
+		2、合并函数
+	*/
+	
+	function fn1(){
+		for(var i=0; i<aBtn.length; i++){
+			aBtn[i].className='';
+		}
+		aBtn[num].className='active';
+		oSpan.innerHTML=(num+1)+'/'+arr.length;
+		oP.innerHTML=arrText[num];
+		oImg.src=arr[num];
+	}
+	
+	oA.onclick=function(){
+		num++;
+		if(num==arr.length){
+			num=0;
+		}
+		
+		fn1();
+	};
+};
+</script>
+<style>
+input { background:none; }
+.active { background:yellow; }
+</style>
+
+<!--
+思路：
+1、干掉全部的class，然后给当前添加
+2、干掉上一个class，然后给当前添加
+-->
+
+</head>
+
+<body>
+
+<input class="active" type="button" value="img1" />
+<input type="button" value="img2" />
+<input type="button" value="img3" />
+<span>图片数量正在加载中……</span>
+<a href="javascript:;">next</a>
+<p>图片说明正在加载中……</p>
+<img src="img/a1.jpg" width="400" />
+
+</body>
+</html>

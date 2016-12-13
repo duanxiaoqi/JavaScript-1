@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+ul,li,h4,body{padding:0;margin:0;list-style:none;font-weight:normal;font-size:12px;}
+a{color:#2a2828;text-decoration:none;}
+#menu{position:absolute;left:0;top:0;background:#eee;width:150px;border:1px solid #ccc;display:none;}
+#menu li{text-indent:10px;line-height:24px;height:24px;border-bottom:1px solid #d0cece;position:relative;}
+#menu li ul{position:absolute;left:143px;top:0;width:150px;background:#eee;border:1px solid #ccc;display:none}
+#menu h4 span{border:5px solid #eee;border-right:none;border-left-color:#999;width:0;height:0;overflow:hidden;display:inline-block;position:absolute;right:10px;
+top:8px;}
+#menu .active{background:#ccc;}
+#menu .active span{border:5px solid #ccc;border-left-color:#eee;position:absolute;right:5px;top:8px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('menu');
+	var oLi=oDiv.children;
+	var aLi=document.getElementsByTagName('li');
+	var aH4=oDiv.getElementsByTagName('h4');
+	var aUl=oDiv.getElementsByTagName('ul');
+	document.oncontextmenu=function(ev)
+	{
+		var ev=ev||event;
+		oDiv.style.display='block';
+		oDiv.style.left=ev.clientX+'px';
+		oDiv.style.top=ev.clientY+'px';
+		var iLeft=document.documentElement.clientWidth-oDiv.offsetWidth;
+		var iTop=document.documentElement.clientHeight-oDiv.offsetHeight;
+		if(ev.clientX>iLeft)
+		{
+			oDiv.style.left=iLeft-5+'px';
+			for(var i=0;i<aUl.length;i++)
+			{
+				aUl[i].style.left='-150px';
+			}
+		}
+		if(ev.clientY>iTop)
+		{
+			oDiv.style.top=iTop+'px';
+			for(var i=0;i<aUl.length;i++)
+			{
+				aUl[i].style.top='-100px';
+			}
+		}
+		return false;
+	}
+	document.onclick=function()
+	{
+		oDiv.style.display='none';
+	}
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].onmouseover=function()
+		{
+			this.className='active';
+		}
+		aLi[i].onmouseout=function()
+		{
+			this.className='';
+		}
+	}
+	for(var i=0;i<oLi.length;i++)
+	{
+		oLi[i].index=i;
+		oLi[i].onmouseover=function()
+		{
+			if(this.children[1])
+			{
+				this.children[1].style.display='block';
+			}
+			this.className='active';
+		}
+		oLi[i].onmouseout=function()
+		{
+			if(this.children[1])
+			{
+				this.children[1].style.display='none';
+			}
+			this.className='';
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<ul id="menu">
+	<li>
+		<h4><a href="#">数码配件</a><span></span></h4>
+		<ul>
+			<li><a href="#">手机</a></li>
+			<li><a href="#">数码相机</a></li>
+			<li><a href="#">笔记本</a></li>
+			<li><a href="#">平板电脑</a></li>
+			<li><a href="#">鼠标</a></li>
+			<li><a href="#">取暖器</a></li>
+			<li><a href="#">足浴器</a></li>
+			<li><a href="#">空调</a></li>
+		</ul>
+	</li>
+	<li><a href="#">蓝牙耳机</a></li>
+	<li>
+		<h4><a href="#">家用投影仪</a><span></span></h4>
+		<ul>
+			<li><a href="#">防盗门</a></li>
+			<li><a href="#">吊灯</a></li>
+			<li><a href="#">热水器</a></li>
+			<li><a href="#">床</a></li>
+			<li><a href="#">沙发</a></li>
+			<li><a href="#">柜类</a></li>
+			<li><a href="#">四件套</a></li>
+			<li><a href="#">羽绒被</a></li>
+			<li><a href="#">装修设计</a></li>
+			<li><a href="#">收纳</a></li>
+		</ul>
+	</li>
+	<li><a href="#">itouch5</a></li>
+	<li><a href="#">大家电</a></li>
+	<li>
+		<h4><a href="#">LED电视</a><span></span></h4>
+		<ul class="foor_links clear">
+		<li><a href="#">春茶</a></li>
+		<li><a href="#">正品名酒</a></li>
+		<li><a href="#">特产</a></li>
+		<li><a href="#">零食3折</a></li>
+		<li><a href="#">进口零食</a></li>
+		<li><a href="#">清肠养胃</a></li>
+		<li><a href="#">预防感冒</a></li>
+		<li><a href="#">滋补养生</a></li>
+		</ul>
+	</li>
+	<li><a href="#">滚筒洗衣机</a></li>
+	<li><a href="#">烟灶消套装</a></li>
+</ul>
+</body>
+</html>

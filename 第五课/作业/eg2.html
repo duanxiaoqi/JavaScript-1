@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><span>111</span><button>上移</button><button>下移</button></li>
+    <li><span>222</span><button>上移</button><button>下移</button></li>
+    <li><span>333</span><button>上移</button><button>下移</button></li>
+    <li><span>444</span><button>上移</button><button>下移</button></li>
+    <li><span>555</span><button>上移</button><button>下移</button></li>
+    <li><span>666</span><button>上移</button><button>下移</button></li>
+</ul>
+<script>
+    window.onload=function () {
+
+        var li=document.getElementsByTagName('li');
+        for(var i=0;i<li.length;i++) {
+            li[i].index = i;
+            li[i].getElementsByTagName('button')[ 0 ].onclick = function () {
+                var span=document.getElementsByTagName('span');
+                var item = this.parentNode;
+
+                var now=this.previousSibling.innerHTML;
+                var prev=span[this.parentNode.index-1].innerHTML;
+
+                this.previousSibling.innerHTML=prev;
+                span[this.parentNode.index-1].innerHTML=now;
+            }
+            li[i].getElementsByTagName('button')[ 1 ].onclick = function () {
+                var span=document.getElementsByTagName('span');
+                var item = this.parentNode;
+
+                var now=item.firstChild.innerHTML;
+                var next=span[this.parentNode.index+1].innerHTML;
+
+                item.firstChild.innerHTML=next;
+                span[this.parentNode.index+1].innerHTML=now;
+            }
+        }
+    }
+</script>
+</body>
+</html>

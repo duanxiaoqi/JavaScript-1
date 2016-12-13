@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            border: 1px solid red;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        .active {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<button>上一张</button>
+<button>下一张</button>
+<span class="active">1</span><span>2</span><span>3</span><span>4</span>
+<p>第一张</p>
+<img src="img/1.jpg" alt="">
+<script>
+    window.onload=function () {
+        var text=['第一张','第二张','第三张','第四张'];
+        var imgs=['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg']
+        var btn=document.getElementsByTagName('button');
+        var p=document.getElementsByTagName('p')[0];
+        var img=document.getElementsByTagName('img')[0];
+        var span=document.getElementsByTagName('span');
+        var index=0;
+
+        btn[0].onclick=function () {
+            if(index==0){
+                index=3;
+            } else {
+                index--;
+            }
+            f();
+        }
+
+        btn[1].onclick=function () {
+            if(index==3){
+                index=0;
+            } else {
+                index++;
+            }
+            f();
+        }
+
+
+        for (var i=0;i<span.length;i++){
+            span[i].index1=i;
+            span[i].onclick=function () {
+                p.innerHTML=text[this.index1];
+                img.src=imgs[this.index1];
+                span[index].className='';
+                span[this.index1].className='active';
+                index=this.index1;
+            }
+        }
+
+        function f () {
+            p.innerHTML=text[index];
+            img.src=imgs[index];
+            for(var i=0;i<span.length;i++){
+                span[i].className='';
+            }
+            span[index].className='active';
+        }
+    }
+</script>
+</body>
+</html>

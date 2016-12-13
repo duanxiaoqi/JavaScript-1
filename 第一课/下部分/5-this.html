@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+window.onload=function(){
+	var aBtn=document.getElementsByTagName('input');
+	
+	for(var i=0; i<aBtn.length; i++){
+		aBtn[i].onclick=fn1;		//事件处理函数
+	}
+	//按钮调用了fn1，所以fn1里面的this指的就是当前按钮
+	function fn1(){
+		alert(this);
+	}
+};
+
+function fn2(){
+	alert(this);			//Window
+}
+//简写
+//fn2();
+//window.fn2();
+
+var a=2;
+
+//window.alert(1);
+//alert(window.a);
+</script>
+
+</head>
+
+<body>
+
+<input type="button" value="btn1" />
+<input type="button" value="btn2" />
+<input type="button" value="btn3" />
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea name="" id="text1" cols="30" rows="10"></textarea>
+<input type="button" value="点击,文字右移" id="btn">
+<textarea name="" id="text2" cols="30" rows="10"></textarea>
+</body>
+<script>
+    window.onload=function () {
+        var btn = document.getElementById('btn');
+        var time=null;
+        var b=true;
+        btn.onclick = function () {
+            var text1 = document.getElementById('text1');
+            var text2 = document.getElementById('text2');
+            var str1=text1.value;
+            var str2='';
+            var arr1=[];
+            var arr2=[];
+            var c='';
+            for(var i=0;i<str1.length;i++){
+                arr1.push(str1.charAt(i));
+            }
+            if(b&&arr1.length>0){
+                time=setInterval(function () {
+                    if(arr1.length<2){
+                        clearTimeout(time);
+                    }
+                    text1.value='';
+                    text2.value='';
+                    c=arr1.shift();
+                    arr2.push(c);
+                    for(var i=0;i<arr1.length;i++){
+                        text1.value+=arr1[i];
+                    }
+                    for(var i=0;i<arr2.length;i++){
+                        text2.value+=arr2[i];
+                    }
+                },500);
+                b=false;
+            }
+
+        }
+    }
+</script>
+</html>

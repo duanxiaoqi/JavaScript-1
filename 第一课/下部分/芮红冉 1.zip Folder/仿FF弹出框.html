@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>放FF弹出框</title>
+<style>
+	html,body,p{margin:0;padding:0;}
+	#mask{width:100%;height:100%;background:#000; position:absolute; opacity:0.5;display:none;z-index:1;}
+	#pop{width:300px;height:150px;border:1px solid #000;position:absolute;top:50%;left:50%;margin-left:-150px;margin-top:-75px; display:none;z-index:2;}
+	#h100{height:100px; line-height:100px; text-align:center;font-size:14px; background:#fff;}
+	.bgGray{padding:10px 30px; height:30px; background:#ccc; text-align:right;}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var oMask = document.getElementById("mask");
+		var oBtn = document.getElementById("btn");
+		var oTxt = document.getElementById("text1");
+		var oPop = document.getElementById("pop");
+		var oClose = document.getElementById("close");
+		var oP = document.getElementById("h100");
+		oBtn.onclick = function(){
+			if(oTxt.value==""){
+				oMask.style.display="block";
+				oPop.style.display="block";
+				oP.innerHTML="不能为空！！";
+				oClose.onclick = fnClose;
+			}else{
+				oMask.style.display="block";
+				oPop.style.display="block";
+				oP.innerHTML=oTxt.value;
+				oClose.onclick = fnClose;
+				oTxt.value="";
+			}
+		};
+		
+		function fnClose(){
+			oMask.style.display="none";
+			oPop.style.display="none";		
+		}
+	};
+</script>
+</head>
+
+<body>
+<div id="mask">sds</div>
+<div id="pop">
+	<p id="h100"></p>
+	<p class="bgGray">
+		<input type="button" value="确定" id="close" />
+	</p>
+</div>
+<input type="text" id="text1" />
+<input type="button" value="确定" id="btn" onclick="alert('请输入内容');" />
+</div>
+</body>
+</html>

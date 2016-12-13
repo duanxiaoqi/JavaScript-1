@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+.active { background:yellow; }
+</style>
+
+</head>
+
+<body>
+
+要求：每隔一秒走一张，走到最后一张，停2秒，再返回第一张
+<br /><br />
+<ul>
+	<li class="active">list-1</li>
+	<li>list-2</li>
+	<li>list-3</li>
+	<li>list-4</li>
+</ul>
+<img src="img/ad.png" width="400" />
+<script>
+    window.onload=function () {
+        var ul=document.getElementsByTagName('ul')[0];
+        var img=document.getElementsByTagName('img')[0];
+        var li=ul.getElementsByTagName('li');
+        var arr=['img/ad.png','img/a1.jpg','img/a2.jpg','img/a3.jpg'];
+        var n=-1;
+        setInterval(function () {
+            if(n==li.length+1){
+                n=0;
+            }else {
+                n++;
+            }
+            for(var i=0;i<li.length;i++){
+                li[i].className='';
+            }
+            li[n].className='active';
+            img.src=arr[n];
+        },1000)
+    }
+</script>
+</body>
+</html>

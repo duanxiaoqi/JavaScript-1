@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        ul{
+            width: 100px;
+            position: relative;
+        }
+
+        li {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        a {
+            display: block;
+            height: 40px;
+            background-color: red;
+        }
+
+        p {
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2>走过的地方</h2>
+    <ul>
+        <li>
+            <a href="#" years="2017年">毛里求斯</a>
+        </li>
+        <li>
+            <a href="#" years="2018年">马尔代夫</a>
+        </li>
+        <li>
+            <a href="#" years="2019年">日本</a>
+        </li>
+        <li>
+            <a href="#" years="2020年">韩国</a>
+        </li>
+    </ul>
+    <p></p>
+</div>
+<script>
+    window.onload=function () {
+        var ul=document.getElementsByTagName('ul')[0];
+        var li=ul.getElementsByTagName('a');
+        for(var i=0;i<li.length;i++){
+            li[i].onmousemove=function (e) {
+                var p=document.getElementsByTagName('p')[0];
+                p.innerHTML=this.getAttribute('years');
+
+                p.style.top=e.clientY+'px';
+                p.style.left=e.clientX+'px';
+                console.log(e.screenY);
+                console.log(e.screenX);
+                p.style.display='block';
+            }
+            li[i].onmouseout=function () {
+                var p=document.getElementsByTagName('p')[0];
+                p.style.display='none';
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+//event对象 :　连接事件与事件细节的桥梁
+
+//event对象 : 出现在事件函数当中
+
+//event的写法 : IE下window.event 标准下:事件函数的第一个参数
+
+//clientX clientY : 鼠标的坐标(相对于浏览器可视区)
+
+document.onclick = function(ev){
+	var oEvent = ev || window.event;
+	
+	alert( oEvent.clientX );
+};
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

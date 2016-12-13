@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>放FF弹出框</title>
+<style>
+html{width:100%;height:100%;}
+body{width:100%;height:100%;margin:0;}
+#main{background:#c0c0c0;height:100%;width:100%;opacity:0.5;display:none}
+#tab{position:absolute;left:50%;top:40%;width:239px;height:98px;display:none;background:url("img/bj.jpg") no-repeat;margin:-67px 0 0 -119px;padding-top:42px;text-align:center;}
+#but{position:absolute;bottom:18px;right:27px;background:url("img/but.jpg") no-repeat;width:73px;height:22px;border:none;padding:0;cursor:pointer;}
+form{width:300px;margin:260px auto;}
+</style>
+<script>
+window.onload=function()
+{
+	var oTxt=document.getElementById('text');
+	var oBut=document.getElementById('but');
+	var oCot=document.getElementById('cot');
+	var oBut1=document.getElementById('but1');
+	var oTab=document.getElementById('tab');
+	var oMain=document.getElementById('main');
+	var oForm=document.getElementsByTagName('form')[0];
+	oBut1.onclick=function()
+	{
+		oForm.style.display='none';
+		oMain.style.display='block';
+		oTab.style.display='block';
+		oCot.innerHTML=oTxt.value;
+		oTxt.value='';
+	}
+	oBut.onclick=function()
+	{
+		oForm.style.display='block';
+		oMain.style.display='none';
+		oTab.style.display='none';
+	}
+
+}
+</script>
+</head>
+
+<body>
+<div id="main"></div>
+<div id="tab">
+	<div id="cot"></div>
+	<input type="buttom" value="" / id="but">
+</div>
+	<form>
+			<input type="text" id="text" / >
+			<input type="button" id="but1" value="确定" />
+	</form>
+</body>
+
+</html>

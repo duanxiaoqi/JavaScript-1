@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="text1">
+<input type="text" id="text2">
+<button>查找</button>
+<script>
+    window.onload=function () {
+        var btn=document.getElementsByTagName('button')[0];
+        btn.onclick=function () {
+            var text1=document.getElementById('text1');
+            var text2=document.getElementById('text2');
+            var str=text1.value;
+            var c=text2.value;
+            var arr=[];
+            for(var i=0;i<str.length;i++){
+                if(str.charAt(i)==c){
+                    arr.push(parseInt(i+1));
+                }
+            }
+            var str1='';
+            for(var i=0;i<arr.length;i++){
+                str1=str1+'  '+arr[i];
+            }
+            alert(c+'总共出现'+arr.length+'次,分别出现在'+str1+'位置处。');
+        }
+    }
+</script>
+</body>
+</html>

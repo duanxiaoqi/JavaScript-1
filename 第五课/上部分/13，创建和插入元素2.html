@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<input type="text" />
+<input type="button" value="发表" />
+
+<ul id="ul1">
+</ul>
+
+</body>
+</html>
+
+<script>
+
+var aInput = document.getElementsByTagName('input');
+var oUl = document.getElementById('ul1');
+
+aInput[1].onclick = function(){
+
+	var oLi = document.createElement('li');
+	oLi.innerHTML = aInput[0].value;
+	//先添加内容，再插入到页面。
+	
+	//oUl.appendChild(oLi);
+	
+	oUl.insertBefore(oLi,oUl.firstChild);
+	
+	
+}; 
+
+/*
+
+get Element By Id  : 通过id的方式获取元素。
+
+createElement : 创建一个dom元素节点。
+
+appendChild : 往一个指定的节点的最后追加一个新的子节点。
+
+insertBefore : 往一个指定的节点的某个子节点前面插入一个新的节点。
+
+*/
+
+</script>

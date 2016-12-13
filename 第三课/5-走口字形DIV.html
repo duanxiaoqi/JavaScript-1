@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+#div1 { width:300px; height:300px; background:#ccc; position:relative; }
+#div2 { width:100px; height:100px; background:red; position:absolute; top:0; left:0; }
+</style>
+<script>
+window.onload=function(){
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	
+	//起始点(x,y)，目标点(x,y)，方向(0,-7)
+	var arrPos=[ [0,0,  200,0, 7,0], [200,0,  200,200, 0,7], [200,200, 0,200, -7,0], [0,200, 0,0, 0,-7] ];
+	var num=0;
+	
+	doMove(arrPos[num]);
+	
+	function doMove(arr){
+		
+		var iSpeedX=arr[0];
+		var iSpeedY=arr[1];
+		var iTargetX=arr[2];
+		var iTargetY=arr[3];
+		var iDirX=arr[4];
+		var iDirY=arr[5];
+		
+		var timer=null;
+		timer=setInterval(function(){
+			if(iSpeedX==iTargetX && iSpeedY==iTargetY){
+				clearInterval(timer);
+				
+				num++;
+				num%=arrPos.length;
+				
+				doMove(arrPos[num]);
+				
+			}else{
+				iSpeedX+=iDirX;
+				iSpeedY+=iDirY;
+				
+				if(iSpeedX>=iTargetX && num==0 || iSpeedX<=iTargetX && num==2){
+					iSpeedX=iTargetX;
+				}
+				if(iSpeedY>=iTargetY && num==1 || iSpeedY<=iTargetY && num==3){
+					iSpeedY=iTargetY;
+				}
+				
+				oDiv2.style.top=iSpeedY+'px';
+				oDiv2.style.left=iSpeedX+'px';
+			}
+		}, 20);
+	}
+};
+</script>
+</head>
+
+<body>
+
+<div id="div1">
+	<div id="div2"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width: 100px; height: 100px; background: red;}
+</style>
+</head>
+
+<body>
+
+  <div id="div1" miaov="妙味课堂" style="width: 100px;"></div>
+  
+  <img src="1.jpg" id="img" />
+
+</body>
+</html>
+
+<script>
+
+/*
+
+操作元素属性的前两种方式：  . 或 [''];
+
+第三种方式：
+
+	获取 ： getAttribute
+	
+		好处：
+		
+			1, 可以获取到自定义的行间属性。
+			
+			2，可以获取图片的相对地址。
+			
+				注： 需要带上第二个参数（2）;
+				
+		
+		兼容问题: 当获取两层以上属性的时候会有兼容问题。
+		
+			
+			
+	
+	设置 ： setAttribute 
+	
+	删除 ： removeAttribute
+
+*/
+
+var oDiv = document.getElementById('div1');
+var oImg = document.getElementById('img');
+
+//alert(oDiv.id);
+
+//oDiv.id = 'div2';
+
+//oDiv.miaov = '妙味课堂';
+
+
+//alert(oDiv.getAttribute('id')); //获取元素的属性
+
+//oDiv.setAttribute('id','div2'); //设置元素的属性。
+
+//oDiv.id = '';
+//oDiv.removeAttribute('id'); //删除dom元素。
+
+//alert(oDiv.miaov);
+//alert(oDiv.getAttribute('miaov'));
+
+
+//alert(oImg.src);
+//alert(oImg.getAttribute('src',2));
+
+//alert(oDiv.style.width);
+//alert(oDiv.style.getAttribute('width'));
+
+
+
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+//字符串、数字、布尔、函数、对象（null）、未定义
+
+//'200px'  200-100
+
+var a='200px';
+//alert(typeof parseInt(a));		//200
+
+var b='23.45元';
+//alert(parseInt(b));
+//alert(parseFloat(b));
+
+var c='200.123';
+alert(Number(c));
+
+
+//1、如果想要去掉小数点：parseInt
+//2、检测某个数是否为小数：parseInt  parseFloat
+
+var str='12.3';
+
+if(parseInt(str) == parseFloat(str)){
+	alert(str+' 是整数');
+}else{
+	alert(str+' 是小数');
+}
+
+
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

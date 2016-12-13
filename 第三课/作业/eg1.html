@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fn1 (num) {
+        var arr=[];
+        for(var i=num; i>0; i-=2){
+            arr.push(i);
+            arr.push(-i);
+        }
+        arr.push(0);
+        return arr;
+    }
+    alert(fn1(16));
+</script>
+</body>
+</html>

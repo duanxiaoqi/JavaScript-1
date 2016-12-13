@@ -1,0 +1,31 @@
+函数定义以后：
+
+fn1();
+function fn1(){ alert(1); }
+fn1();
+function fn1(){ alert(2); }
+
+表达式定义：
+var fn1=function(){ alert(3); };
+fn1();
+function fn1(){ alert(4); }
+fn1();
+
+外面不能访问里面——如果我非要在外面找到里面的值？？
+里面可以访问外面
+无论是变量，还是函数都参照上面的规则 
+
+只有函数的{}才是作用域
+
+for(){
+	function(){
+		i = for走完以后的值
+	}
+}
+
+
+var i=1;
+functino fn1(){
+	alert(i);	//未定义
+	var i=2;
+}

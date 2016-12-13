@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+
+<script>
+
+/*
+
+	需要 100个从 0 ~ 1000 之间的随机不重复的数字。
+
+
+*/
+
+var arr = [];
+
+for(var i = 0; i <= 1000; i++){
+
+	arr.push(i);
+	
+}
+
+//alert(arr);
+
+arr.sort(function(){ return Math.random()-0.5; });
+
+arr.length = 100;
+
+alert(arr);
+
+
+</script>

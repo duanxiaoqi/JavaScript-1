@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width: 150px; height: 100px; line-height: 100px; text-align: center;}
+
+#div1.a {background: #ccc;}
+#div1.b {border: 3px solid #333;}
+#div1.c {font-size: 30px; font-weight: bold; color: red;}
+</style>
+</head>
+
+<body>
+<input type="button" value="css1" />
+<input type="button" value="css2" />
+<input type="button" value="css3" />
+
+<div id="div1" class="a b c">妙味课堂</div>
+
+</body>
+</html>
+
+<script>
+
+var oDiv = document.getElementById('div1');
+var aBtn = document.getElementsByTagName('input');
+var arr = ['a','b','c'];
+
+for(var i=0; i<aBtn.length; i++){
+
+	aBtn[i].index = i;
+	aBtn[i].onclick = function(){
+		
+		var aClass = oDiv.className.split(' ');
+		if(!aClass[0])return;
+		
+		for(var i=0; i<aClass.length; i++){
+			if(aClass[i]==arr[this.index]){
+				aClass.splice(i,1);
+				oDiv.className = aClass.join(' ');
+				return;
+			}	
+		}		
+		
+	};
+	
+}
+
+// [1,2,3,4].splice(1,1)
+
+</script>

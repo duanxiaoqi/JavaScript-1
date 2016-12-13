@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width: 150px; height: 100px; line-height: 100px; text-align: center;}
+
+#div1.a {background: #ccc;}
+#div1.b {border: 3px solid #333;}
+#div1.c {font-size: 30px; font-weight: bold; color: red;}
+#div1.e{background:yellow;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var aBtn=document.getElementsByTagName('input');
+	aBtn[1].onclick=function()
+	{
+		var aClass=oDiv.className.split(' ');
+		for(var i=0;i<aClass.length;i++)
+		{
+			if(aClass[i]!=aBtn[0].value)
+			{
+				oDiv.className+=' '+aBtn[0].value;
+				aBtn[0].value='';
+				return;
+			}
+			else if(aClass[i]==aBtn[0].value)
+			{
+				aClass.splice(i,1);
+				oDiv.className = aClass.join(' ');
+				aBtn[0].value='';
+				return;
+			}
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+<div id="div1" class="a b c">妙味课堂</div>
+
+<input type="text" value="" />
+<input type="button" value="css3" />
+</body>
+</html>
+
+<script>
+
+/*
+
+点击按钮：
+
+ 1，如果div上有input中的class，就删除这个class。
+ 
+ 2，如果div上没有这个class，就添加class。
+
+*/
+
+</script>

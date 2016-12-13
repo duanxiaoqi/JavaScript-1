@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+#div1 { width:300px; border:1px solid #333; padding:20px;margin:10px 0; }
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var oDiv = document.getElementById("div1");
+		var oBtn = document.getElementById("btn");
+		var oTxt = document.getElementById("text1");		
+		oBtn.onclick = function(){
+			oDiv.innerHTML+=oTxt.value+"<br />";		
+			oTxt.value="";	
+		};		
+	};
+</script>
+</head>
+
+<body>
+
+<div id="div1"></div>
+<input type="text" id="text1" />
+<input type="button" value="提交" id="btn" />
+<br /><br />
+点提交按钮以后，可以把文本框里面的值，放到DIV里面去
+再次提交，像QQ一样，把新的内容放到原来内容的下面
+<br />
+扩展：如果没有输入内容，就不要提交，提醒用户：请输入～
+
+</body>
+</html>

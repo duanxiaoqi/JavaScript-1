@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+
+window.onload=function(){
+	
+	var oT=document.getElementsByTagName('input')[0];
+	
+	//setInterval(myTime, 1000);
+	setInterval(function(){
+		myTime();
+	}, 1000);
+	
+	myTime();
+	function myTime(){
+		var oDate=new Date();					//最新的系统的时间
+		var iYear=oDate.getFullYear();		//年
+		var iMonth=oDate.getMonth()+1;	//月
+		var iDay=oDate.getDate();			//日
+		var iWeek=oDate.getDay();			//星期（周日是0）
+		var iHour=oDate.getHours();			//时
+		var iMin=oDate.getMinutes();		//分
+		var iSec=oDate.getSeconds();		//秒
+		
+		//alert(typeof iSec);
+		
+		if(iWeek==0)iWeek='周日';
+		if(iWeek==1)iWeek='周一';
+		if(iWeek==2)iWeek='周二';
+		if(iWeek==3)iWeek='周三';
+		if(iWeek==4)iWeek='周四';
+		if(iWeek==5)iWeek='周五';
+		if(iWeek==6)iWeek='周六';
+		
+		var str=iYear+'年'+iMonth+'月'+iDay+'日'+iWeek+' '+fnTwo(iHour)+':'+fnTwo(iMin)+':'+fnTwo(iSec);
+		
+		oT.value=str;
+	}
+};
+
+function fnTwo(n){
+	if(n<10){
+		return '0'+n;
+	}
+	return ''+n;
+}
+	
+</script>
+<style>
+input { font-size:40px; line-height:50px; width:600px; }
+</style>
+</head>
+
+<body>
+
+<input type="text" />
+
+</body>
+</html>

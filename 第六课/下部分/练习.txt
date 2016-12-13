@@ -1,0 +1,15 @@
+1.让方块移动的流畅(定时器)
+
+2.让方块可以双键操作(八个方向)
+
+3.右键菜单（多级）
+
+4.模拟select控件
+
+5.拖拽回放
+
+6.鼠标绘制方块
+
+7.左右切换
+.left{ cursor:url('arr_left.cur'),auto;}
+.right{ cursor:url('arr_right.cur'),auto;}

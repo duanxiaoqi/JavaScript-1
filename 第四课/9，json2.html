@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+
+<script>
+
+var arr = [1,2,3,4];
+
+var json = {miaov: 123, b: 'abc', c: true}
+
+//alert(arr[0]);
+//alert(json['miaov']);
+
+//alert(arr.length);
+//alert(json);
+
+/*for(var i=0; i<arr.length; i++){
+
+	alert(arr[i]);	
+	
+}
+
+for(var i=0; i<json.length; i++){
+
+	alert(json[i]);	
+	
+}
+
+for(var i in json){
+
+	alert(json[i]);	
+	
+}*/
+
+for(var i=2 in json){
+
+	//alert(arr[i]);	
+	alert(i);	
+	
+}
+
+
+/*
+
+json 与 数组:
+
+	1, 下标不同。
+	
+	2, json本身没有length属性。
+	
+	3, json只能用for..in..循环遍历，数组既可以使用for..in..，也可以使用for.
+	
+
+for与for..in..
+
+	1， for..in..不需要设置初始值。
+	
+	2， for..in..没有办法只循环某一段。
+
+*/
+
+
+
+
+
+</script>

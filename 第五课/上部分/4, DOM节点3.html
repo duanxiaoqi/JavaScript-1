@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+	<ul>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+    <li></li>
+  	<li></li>
+  </ul>
+  
+  
+
+</body>
+</html>
+
+<script>
+
+
+var oUl = document.getElementsByTagName('ul')[0];
+//var firstLi = oUl.firstElementChild;
+//var firstLi = oUl.firstChild;
+
+var firstLi = oUl.firstElementChild || oUl.firstChild;
+//注意： 顺序一定不能反，否则就会失去处理的意义。
+
+var lastLi = oUl.lastElementChild || oUl.lastChild;
+
+var nextLi = firstLi.nextElementSibling || firstLi.nextSibling;
+var prevLi = lastLi.previousElementSibling || lastLi.previousSibling;
+
+//alert(firstLi.nodeType);
+
+
+firstLi.style.background = 'red';
+lastLi.style.background = 'blue';
+
+nextLi.style.background = 'green';
+prevLi.style.background = 'orange';
+
+/*
+
+firstChild : 获取第一个子节点。
+
+	标准和ie9以上： 会获取到空文本节点。
+	
+	ie6/7/8 : 不会获取空文本节点。
+	
+firstElementChild ： 在标准下获取第一个子元素节点，ie6、7、8不支持。
+
+*/
+
+</script>

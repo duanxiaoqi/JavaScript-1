@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+ul,h3,input{margin:0;padding:0;}
+#main{width:370px;margin:60px auto;font-size:12px;}
+.left{width:110px;float:Left;text-align:center;margin-right:10px;}
+.but{width:100px;float:left;color:#ccc}
+#main ul{display:none;}
+#main h3{background:#eee;height:24px;line-height:24px;cursor:pointer;}
+#main li{list-style:none;background:#eee;line-height:24px;height:24px;border-top:1px solid #fff;cursor:pointer;}
+#main li.active{background:#e5e1e1;}
+</style>
+<script>
+window.onload=function()
+{
+	var oH3=document.getElementsByTagName('h3')[0];
+	var oUl=document.getElementsByTagName('ul')[0];
+	var aLi=document.getElementsByTagName('li');
+	var oBut=document.getElementsByTagName('input')[0];
+	var add=true;
+	var arr=['黄晓明','什么都可以','在爱你一次','暗恋'];
+	var n=0;
+	oBut.value=arr[0];
+	oH3.onclick=function()
+	{
+		if(add)
+		{
+			oUl.style.display='block';
+			add=false;
+		}
+		else
+		{
+			oUl.style.display='none';
+			add=true;
+		}
+	}
+	oBut.onfocus=function()
+	{
+		for(var i=0;i<arr.length;i++)
+		{
+			if(oBut.value==arr[i])
+			{
+				oBut.value='';
+			}
+		}
+	}
+
+	oBut.onblur=function()
+	{
+		for(var i=0;i<arr.length;i++)
+		{
+			if(oBut.value=='')
+			{
+				oBut.value=arr[n];
+			}
+		}
+	}
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onclick=function()
+		{
+			oUl.style.display='none';
+			oBut.value=arr[this.index];
+			oBut.focus();
+			n=this.index;
+			add=true;
+		}
+		aLi[i].onmouseover=function()
+		{
+			for(var i=0;i<aLi.length;i++)
+			{
+				aLi[i].className='';
+			}
+			this.className='active';
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="main">
+	<div class="left">
+		<h3>歌曲</h3>
+		<ul>
+			<li>歌手</li>
+			<li>歌曲</li>
+			<li>专辑</li>
+			<li>mv</li>
+		</ul>
+	</div>
+	<input type="text" class="but">
+</div>
+</body>
+</html>

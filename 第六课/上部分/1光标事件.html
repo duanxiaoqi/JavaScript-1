@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+	var aInput = document.getElementsByTagName('input');
+	
+	for(var i=0;i<aInput.length;i++){
+		aInput[i].onfocus = function(){ //光标移入事件
+			this.style.background = 'red';
+		};
+		aInput[i].onblur = function(){ //光标移出事件
+			this.style.background = '';
+		};
+	}
+	
+};
+</script>
+</head>
+
+<body>
+<input type="text" />
+<input type="text" />
+<input type="text" />
+</body>
+</html>

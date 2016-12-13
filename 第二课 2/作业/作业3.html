@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+请判断大小：<input type="text" id="text1"/><input type="text"  id="text2"/>
+<input type="button" value="判断" id="button" />
+
+<br />
+<br />
+要求：<br />
+1、判断两个框有没有输入<br />
+2、判断两个框中哪一个没有输入<br />
+3、判断两个框中哪一个输入的不是数字<br />
+4、判断哪个数字大
+
+<script>
+    window.onload=function () {
+        var btn=document.getElementById('button');
+        btn.onclick=function () {
+            var text1=document.getElementById('text1');
+            var text2=document.getElementById('text2');
+            if(text1.value=='') {
+                alert('第一个框 不能为空');
+            } else if(text2.value=='') {
+                alert('第二个框 不能为空');
+            } else if(isNaN(text1.value)) {
+                alert('第一个框不是数字');
+            } else if(isNaN(text2.value)) {
+                alert('第二个框不是数字');
+            } else if(parseInt(text1.value)>parseInt(text2.value)) {
+                alert('第一个框数字大');
+            } else {
+                alert('第二个框数字大');
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

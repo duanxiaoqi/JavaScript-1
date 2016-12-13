@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<textarea id="txt"></textarea>
+	<input type="button" id="btn" value="运行" />
+</body>
+</html>
+
+<script>
+
+var oTxt = document.getElementById('txt');
+var oBtn = document.getElementById('btn');
+
+oBtn.onclick = function(){
+
+	var a = window.open();
+	
+	a.document.write(oTxt.value);
+	
+};
+
+
+</script>
+

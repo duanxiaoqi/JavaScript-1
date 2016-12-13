@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#box1,#box2 {width: 300px; height: 300px; border: 3px solid #333; margin: 0 auto;}
+#div1,#div2,#div3 {width: 100px; height: 100px; background: red;}
+#div2 {background: blue;}
+#div3 {background: green;}
+</style>
+</head>
+
+<body>
+
+<div id="box1">
+	<div id="div1"></div>
+</div>
+
+<hr />
+
+<div id="box2">
+	<div id="div2"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+var oBox = document.getElementById('box2');
+var oDiv1 = document.getElementById('div1');
+var oDiv2 = document.getElementById('div2');
+
+oDiv2.onclick = function(){
+	
+	var oDiv = document.createElement('div');
+	oDiv.id = 'div3';
+	
+
+	//oBox.replaceChild(oDiv1,oDiv2);	
+	//oBox.replaceChild(oDiv,oDiv2);	
+	
+	//oBox.appendChild(oDiv1);
+	oBox.insertBefore(oDiv1,this);
+	
+};
+
+/*
+
+replaceChild : 用一个节点去替换指定元素下面的某个子节点。
+
+	1，用来替换的节点会直接被移动到新的位置上。
+	
+	2，被替换的节点会直接从页面上删除。
+	
+
+注意： 不论是appendChild ，insertBefore还是replaceChild，如果是操作一个已有的元素都是移动这个元素的位置，而不是复制一个副本。
+
+*/
+
+</script>

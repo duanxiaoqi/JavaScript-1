@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+  <!--注释节点-->
+	<ul>
+  	<li>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </li>
+  	<li></li>
+  	<li></li>
+    <li>fdaf</li>
+  	<li></li>
+  </ul>
+  
+  
+
+</body>
+</html>
+
+<script>
+
+/*
+
+DOM节点： 
+
+
+
+变量类型： number string
+
+	typeof 运算符
+
+
+节点类型： 文本节点、元素节点、属性节点、注释节点、document
+
+查看节点类型： nodeType 属性
+
+	1,元素节点  3,文本节点 2,属性节点 8,注释节点 9,document
+
+	文本节点是没有任何属性。
+	
+
+childNodes : 获取子节点。
+	
+	标准和ie9以上 ： 元素节点 + 空文本节点。
+	
+	ie6/7/8 : 元素节点
+
+*/
+
+//var oUl = document.getElementById('ul1');
+var oUl = document.getElementsByTagName('ul')[0];
+var aLi = oUl.childNodes;
+
+//alert(aLi.length);
+//alert(oUl.nodeType);
+
+//alert(aLi[0].nodeType);
+
+//alert(oUl.id.nodeType); //不合法
+
+//alert(document.nodeType);
+
+//alert(oUl.attributes[0].nodeType);
+//alert(oUl.attributes[0].value);
+
+for(var i=0; i<aLi.length; i++){
+
+	if(aLi[i].nodeType==1){
+		aLi[i].style.background = 'red';	
+	}
+	
+}
+
+</script>

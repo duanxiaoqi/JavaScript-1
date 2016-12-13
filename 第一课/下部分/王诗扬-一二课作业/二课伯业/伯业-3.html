@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	aInput[2].onclick=function()
+	{
+		var a1=Number(aInput[0].value);
+		var a2=Number(aInput[1].value);
+		if(aInput[0].value==''&&aInput[1].value=='')
+		{
+			alert('请两个框输入内容');
+		}
+		else if(aInput[0].value=='')
+		{
+			alert('请在第一个框输入内容');
+		}
+		else if(aInput[1].value=='')
+		{
+			alert('请在第二个框输入内容');
+		}
+		else if(isNaN(a1)&&isNaN(a2))
+		{
+			alert('二个框都不是数字');
+		}
+		else if(isNaN(a1))
+		{
+			alert('第一个框不是数字');
+		}
+		else if(isNaN(a2))
+		{
+			alert('第二个框不是数字');
+		}
+		else if(a1>a2)
+		{
+			alert('第一个框的数字大');
+		}
+		else if(a1<a2)
+		{
+			alert('第二个框的数字大');
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+请判断大小：<input type="text" /><input type="text" />
+<input type="button" value="判断" />
+
+<br />
+<br />
+要求：<br />
+1、判断两个框有没有输入<br />
+2、判断两个框中哪一个没有输入<br />
+3、判断两个框中哪一个输入的不是数字<br />
+4、判断哪个数字大
+
+
+
+</body>
+</html>

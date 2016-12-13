@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+#ad { width:966px; height:0; overflow:hidden; background:url(img/ad.png) center center; margin:0 auto; }
+body { margin:0; text-align:center; }
+</style>
+
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById('ad');
+	
+	//1、用函数把要用到的代码包起来
+	//2、找出函数里面会变的值（参数）、判断条件会变
+	//3、设置开关（会有1次、2次）、判断条件
+	
+	//oDiv.timer=null;
+	var timer=null;
+	var num=0;
+	
+	setTimeout(function(){
+		
+		doMove(0, 400, 7);
+		
+	}, 2000);
+	
+	function doMove(start, target, speed){
+		timer=setInterval(function(){
+			if(start==target){
+				clearInterval(timer);
+				//document.title=num+'次';
+				
+				num++;
+				if(num==1){
+					setTimeout(function(){
+						doMove(400, 0, -7);
+					}, 1000);
+				}
+			}else{
+				start+=speed;
+				if(start>=target && num==0 || start<=target && num==1){
+					start=target;
+				}
+				oDiv.style.height=start+'px';
+			}
+		}, 20);
+	}
+};
+</script>
+
+</head>
+
+<body style="height:2000px;">
+
+<div id="ad"></div>
+<img src="img/html.png" />
+
+</body>
+</html>

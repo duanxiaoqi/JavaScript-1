@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+body,html {height: 2000px; margin: 0;}
+#mark {width: 100%; height: 100%; background: #333; position: absolute; left: 0; top: 0; opacity: 0.6;}
+#box {width: 400px; height: 300px; border: 5px solid #333; position: absolute; left: 0; top: 0; background: #fff;}
+</style>
+</head>
+
+<body>
+
+<div id="mark"></div>
+<div id="box"></div>
+
+</body>
+</html>
+
+<script>
+function viewH(){
+	return document.documentElement.clientHeight;	
+}
+
+function viewW(){
+	return document.documentElement.clientWidth;	
+}
+
+function scrollY(){
+	return document.body.scrollTop || document.documentElement.scrollTop;	
+}
+
+function scrollH(){
+	return document.body.scrollHeight;
+}
+
+
+
+var oMark = document.getElementById('mark');
+var oBox = document.getElementById('box');
+
+var iH  = Math.max(scrollH(),viewH()); //求两个值的最大值。
+var iLeft = ( viewW() - oBox.offsetWidth ) / 2;
+var iTop = ( viewH() - oBox.offsetHeight ) / 2;
+
+oBox.style.left = iLeft + 'px';
+oBox.style.top = iTop + 'px';
+
+
+oMark.style.height = iH + 'px';
+
+
+window.onresize = window.onscroll = function(){
+	
+	iLeft = ( viewW() - oBox.offsetWidth ) / 2;
+	iTop = ( viewH() - oBox.offsetHeight ) / 2 + scrollY();
+	
+	oBox.style.left = iLeft + 'px';
+	oBox.style.top = iTop + 'px';
+	
+};
+
+
+
+
+</script>

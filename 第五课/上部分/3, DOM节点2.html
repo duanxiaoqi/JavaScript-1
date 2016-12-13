@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+	<ul>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+    <li></li>
+  	<li></li>
+    <p>12313</p>
+  </ul>
+  
+  
+
+</body>
+</html>
+
+<script>
+
+
+var oUl = document.getElementsByTagName('ul')[0];
+//var aLi = oUl.childNodes; //标准属性
+var aLi = oUl.children; //非标准属性
+
+//alert(aLi.length);
+
+for(var i=0; i<aLi.length; i++){
+
+	aLi[i].style.background = 'blue';	
+	
+}
+
+/*
+
+children : 所有浏览器下都只获取 元素节点。
+
+
+注意： 不论使用childNodes也好，还是children也好，布局必须符合规范，否则会造成兼容问题。
+
+*/
+
+</script>

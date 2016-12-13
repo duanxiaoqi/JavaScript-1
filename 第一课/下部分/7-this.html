@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+window.onload=function(){
+	var aBtn=document.getElementsByTagName('input');
+	
+	for(var i=0; i<aBtn.length; i++){
+		aBtn[i].onclick=fn1;
+	}
+	
+	function fn1(){
+		
+		var _this=this;
+		
+		function fn2(){
+			//alert(this);	//window
+			alert(_this);	//按钮
+		}
+		fn2();
+		
+	}
+	
+};
+</script>
+
+</head>
+
+<body>
+
+<input type="button" value="btn1" />
+<input type="button" value="btn2" />
+<input type="button" value="btn3" />
+
+</body>
+</html>

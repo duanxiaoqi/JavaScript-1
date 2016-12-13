@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+ul { padding:0; margin:0; }
+li { list-style:none; }
+#div1 { width:400px; }
+.menu { height:30px; }
+.menu li { height:30px; width:80px; text-align:center; line-height:30px; float:left; background:#ccc; cursor:pointer; margin-right:3px; display:inline; }
+.menu .active { background:#000; color:#fff; }
+
+#div1 div { display:none; }
+
+#div1 .show { width:358px; border:1px solid #333; padding:20px; overflow:hidden; display:block; position:relative; }
+#div1 .show img { float:left; }
+#div1 .show ul { float:right; width:220px; }
+#div1 .show li { background:#ccc; line-height:30px; text-indent:20px; cursor:pointer; border-bottom:1px solid #000; }
+#div1 .show .active { background:#999; }
+a { text-decoration:none; color:#000; }
+.prev { position:absolute; bottom:4px; right:60px; }
+.next { position:absolute; bottom:4px; right:20px; }
+</style>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var aBtn=oUl.getElementsByTagName('li');
+	var aDiv=oDiv.getElementsByTagName('div');
+	var arr=[ ['img/a1.jpg','img/a2.jpg','img/a3.jpg'], ['img/b1.jpg','img/b2.jpg','img/b3.jpg'] ];
+	
+	for(var i=0; i<aBtn.length; i++){
+		aBtn[i].index=i;
+		aBtn[i].onclick=fnTab;
+	}
+	function fnTab(){
+		for(var i=0; i<aDiv.length; i++){
+			aDiv[i].className=aBtn[i].className='';
+		}
+		aDiv[this.index].className='show';
+		aBtn[this.index].className='active';
+	}
+	
+	for(var i=0; i<aDiv.length; i++){
+		var aLi=aDiv[i].getElementsByTagName('li');
+		for(var j=0; j<aLi.length; j++){
+			aLi[j].index=j;
+			aLi[j].n=i;				//添加的 0 || 1
+			aLi[j].onclick=fnImg;
+		}
+	}
+
+	function fnImg(){
+		var aLi=aDiv[this.n].getElementsByTagName('li');
+		var oImg=aDiv[this.n].getElementsByTagName('img')[0];
+		for(var i=0; i<aLi.length; i++){
+			aLi[i].className='';
+		}
+		this.className='active';
+		oImg.src=arr[this.n][this.index];
+	}
+};
+</script>
+
+<!--
+不通过DOM方法，如何找到同辈的元素们
+1、先给每个元素身上添加标记：一组是0，一组是1
+2、通过点击元素获取身上的标记：0||1，然后去获取父级元素
+3、通过获取到的父级元素，去找子级的所有li
+
+没有学不会的，只有不按要求做练习的！
+
+关于学习方法：
+1、在你记忆时间段内，看完所有上课的内容
+2、赶紧自己写一遍上课中所有实例、最关键是找出每个实例中所有的卡住你的方法、技巧是什么
+3、开始做作业（常规、扩展）
+4、被扩展版问题卡住了，记下来，明天课上问（QQ问）
+-->
+
+</head>
+
+<body>
+
+<div id="div1">
+	<ul class="menu">
+    	<li class="active">menu-1</li>
+    	<li>menu-2</li>
+        <li>切换</li>
+    </ul>
+    <div class="show">
+        <img src="img/a1.jpg" width="120" height="100" />
+        <ul>
+            <li class="active">a-img1</li>
+            <li>a-img2</li>
+            <li>a-img3</li>
+        </ul>
+        <a class="prev" href="javascript:;">prev</a>
+        <a class="next" href="javascript:;">next</a>
+    </div>
+    <div>
+        <img src="img/b1.jpg" width="120" height="100" />
+        <ul>
+            <li class="active">b-img1</li>
+            <li>b-img2</li>
+            <li>b-img3</li>
+        </ul>
+        <a class="prev" href="javascript:;">prev</a>
+        <a class="next" href="javascript:;">next</a>
+    </div>
+</div>
+
+</body>
+</html>

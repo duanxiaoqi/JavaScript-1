@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	var oP=document.getElementById('p1');
+	var i=0;
+	var oImg=document.getElementsByTagName('img')[0];
+	var arr=['这是图片一','这是图片二','这是图片三','这是图片四'];
+	var acc=['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+	var j=0;
+	aInput[0].onclick=function()
+	{
+		j--;
+		if(j<0)
+		{
+			j=3;
+		}
+		oImg.src=acc[j];
+		oP.innerHTML=arr[j];
+	}
+	aInput[1].onclick=function()
+	{
+		j++;
+		if(j==acc.length)
+		{
+			j=0;
+		}
+		oImg.src=acc[j];
+		oP.innerHTML=arr[j]
+	}
+	oImg.onclick=function()
+	{
+		j++;
+		if(j>acc.length-1)
+		{
+			j=0;
+		}
+		this.src=acc[j];
+		oP.innerHTML=arr[j];
+	}
+}
+</script>
+</head>
+
+<body>
+
+<input id="prev" type="button" value="上一张" />
+<input id="next" type="button" value="下一张" />
+<p id="p1">文字说明……</p>
+<img id="img1" src="img/1.jpg" />
+
+</body>
+</html>

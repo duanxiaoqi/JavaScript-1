@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<input type="text" />
+<input type="button" value="发表" />
+
+<ul id="ul1">
+	<li>adajflfdsadf111<a href="javascript:;">删除</a></li>
+	<li>adsdfs222<a href="javascript:;">删除</a></li>
+	<li>adfsdfsdfadf333<a href="javascript:;">删除</a></li>
+	<li>adfjfdfsfadf444<a href="javascript:;">删除</a></li>
+	<li>adffs<a href="javascript:;">删除</a></li>
+</ul>
+
+</body>
+</html>
+
+<script>
+
+var aInput = document.getElementsByTagName('input');
+var oUl = document.getElementById('ul1');
+var aA = oUl.getElementsByTagName('a');
+
+aInput[1].onclick = function(){
+
+	var oLi = document.createElement('li');
+	oLi.innerHTML = aInput[0].value + '<a href="javascript:;">删除</a>';
+	
+	oUl.insertBefore(oLi,oUl.firstChild);
+	
+	//alert(aA.length);
+	
+	var oA = oLi.getElementsByTagName('a')[0];
+	
+	oA.onclick = function(){
+		oUl.removeChild(this.parentNode);
+	};
+	
+};
+
+for(var i=0; i<aA.length; i++){
+	
+	aA[i].onclick = function(){
+		oUl.removeChild(this.parentNode);
+	};
+} 
+
+/*
+
+get Element By Id  : 通过id的方式获取元素。
+
+createElement : 创建一个dom元素节点。
+
+appendChild : 往一个指定的节点的最后追加一个新的子节点。
+
+insertBefore : 往一个指定的节点的某个子节点前面插入一个新的节点。
+
+removeChild ： 删除元素下的某个指定的子节点。
+
+*/
+
+</script>

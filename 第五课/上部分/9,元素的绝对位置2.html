@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html id="h1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+body {margin: 0;}
+div {float: left;}
+#div1 {padding: 50px; background: green; position: -relative; margin: 50px 30px;}
+#div2 {padding: 50px; background: pink; position: relative;}
+#div3 {width: 100px; height: 100px; background: red; position: relative;}
+</style>
+</head>
+
+<body id="isBody">
+
+  <div id="div1">
+    <div id="div2">
+      <div id="div3"></div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<script>
+
+var oDiv1 = document.getElementById('div1');
+var oDiv2 = document.getElementById('div2');
+var oDiv3 = document.getElementById('div3');
+var oHtml = document.getElementById('h1');
+
+//alert(document.body.offsetLeft);
+//alert(document.body.offsetParent);
+
+oDiv3.onclick = function(){
+
+	//alert(posLeft(this));
+	alert(posTop(this));
+	
+};
+
+function posLeft(obj){
+	
+	var iLeft = 0;
+		
+	while(obj){ 
+		iLeft += obj.offsetLeft; 
+		obj = obj.offsetParent;
+	}
+
+	return iLeft;
+}
+
+
+
+function posTop(obj){
+	
+	var iTop = 0;
+		
+	while(obj){ 
+		iTop += obj.offsetTop; 
+		obj = obj.offsetParent;
+	}
+
+	return iTop;
+}
+
+
+
+</script>

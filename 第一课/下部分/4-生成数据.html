@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+
+window.onload=function(){
+	var oBtn=document.getElementsByTagName('input')[0];
+	var oUl=document.getElementsByTagName('ul')[0];
+	var oSpan=document.getElementsByTagName('span')[0];
+	var arr=[
+		'海南宣布不出台国五条细则 延续限购政策',
+		'中国南海舰队训练编队遭遇外国军舰战机跟踪',
+		'湖北巴东村民被碾死续：肇事者承认受人指使'
+	];
+	var n=0;
+	
+	oBtn.onclick=function(){
+		
+		//oBtn.disabled='disabled';
+		//if(bNum==true){
+		if(n==0){
+			for(var i=0; i<arr.length; i++){
+				oUl.innerHTML+='<li>'+arr[i]+'</li>';
+			}
+		}else if(n==1){
+			oSpan.innerHTML='亲，只能点一次哦～';
+		}else if(n==2){
+			oSpan.innerHTML='亲，只能点一次哦～2';
+		}else if(n==3){
+			oSpan.innerHTML='亲，只能点一次哦～3';
+		}else if(n==4){
+			oSpan.innerHTML='亲，只能点一次哦～4';
+		}else if(n==5){
+			oSpan.innerHTML='亲，只能点一次哦～5';
+		}else{
+			oSpan.innerHTML='亲，你点吧，点吧，我去吃饭了～';
+		}
+		n++;
+	};
+};
+</script>
+</head>
+
+<body>
+
+<input type="button" value="btn1" /><span></span>
+<ul></ul>
+
+</body>
+</html>

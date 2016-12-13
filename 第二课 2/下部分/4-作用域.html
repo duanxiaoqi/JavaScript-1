@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+
+if(false){
+	var abc=1;
+}
+//alert(abc);  //未定义（因为if不是作用域，浏览器能记录 abc 这个名字）
+
+window.onload=function(){
+	var aBtn=document.getElementsByTagName('input');
+	
+	for(var i=0; i<aBtn.length; i++){
+		//var abc=function(){}
+		aBtn[i].onclick=function(){
+			//alert(i);	//3
+			
+			//aBtn[i].style.background='yellow';	i不是0 1 2，而是3
+			/*
+			for(var i=0; i<aBtn.length; i++){
+				aBtn[i].style.background='yellow';
+			}
+			*/
+		};
+	}
+	
+	aBtn[0].onclick();
+};
+
+/*var i=1;
+function fn1(){
+	alert(i);	//未定义
+	var i=1;
+}
+fn1();*/
+</script>
+</head>
+
+<body>
+
+<input type="button" value="btn1" />
+<input type="button" value="btn2" />
+<input type="button" value="btn3" />
+
+</body>
+</html>

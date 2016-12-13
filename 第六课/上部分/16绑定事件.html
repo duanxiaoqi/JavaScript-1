@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+
+
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	
+	
+	bindEvent(oDiv,'click',aaa);
+	
+	
+	function aaa(){
+		alert(this); //IE8的绑定this指向了window(IE设计的问题)
+	}
+	
+	
+	function bindEvent(obj,events,fn){
+		if(obj.addEventListener){
+			obj.addEventListener(events,fn,false);
+		}
+		else{
+			obj.attachEvent('on'+events,function(){
+				fn.call(obj);
+			});
+		}
+	}
+	
+};
+
+</script>
+</head>
+
+<body>
+<div id="div1">asdhjas</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+.active{border:1px solid #000;position:absolute;left:0;top:0;}
+</style>
+<script>
+window.onload=function()
+{
+	var oSpan=null;
+	document.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		oSpan=document.createElement('span');
+		oSpan.className='active';
+		var iLeft=oEvent.clientX;
+		var iTop=oEvent.clientY;
+		oSpan.style.left=iLeft+'px';
+		oSpan.style.top=iTop+'px';
+		document.body.appendChild(oSpan);
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			if(oEvent.clientX>iLeft&&oEvent.clientY>iTop)
+			{
+				oSpan.style.width=oEvent.clientX-iLeft+'px';
+				oSpan.style.height=oEvent.clientY-iTop+'px';
+			}
+			else if(oEvent.clientX<iLeft&&oEvent.clientY<iTop)
+			{
+				oSpan.style.height=iTop-oEvent.clientY+'px';
+				oSpan.style.width=iLeft-oEvent.clientX+'px';
+				oSpan.style.left=iLeft-(iLeft-oEvent.clientX)+'px';
+				oSpan.style.top=iTop-(iTop-oEvent.clientY)+'px';
+			}
+			else 
+			{
+				oSpan.style.width=iLeft-oEvent.clientX+'px';
+				oSpan.style.height=oEvent.clientY-iTop+'px';
+				oSpan.style.left=iLeft-(iLeft-oEvent.clientX)+'px';
+				oSpan.style.top=oEvent.clientY-(oEvent.clientY-iTop)+'px';
+			}
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=null;
+			document.body.removeChild(oSpan);
+		}
+	}
+	
+}
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+#div1 { width:100px; height:100px; background:red; position:absolute; top:10px; left:0; }
+#div2 { width:10px; height:300px; background:#ccc; position:absolute; top:20px; left:300px; }
+</style>
+
+<script>
+window.onload=function(){
+	//offsetWidth
+	//offsetHeight
+	//offsetTop
+	//offsetLeft
+
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+    console.log (oDiv1.offsetWidth,oDiv2.offsetLeft)
+	var timer=null;
+	var speed=0;
+	var num=10;
+
+//	方向， 目标点
+	doMove(7, oDiv2.offsetLeft-oDiv1.offsetWidth+num);
+
+	function doMove(dir, target){
+
+		timer=setInterval(function(){
+			if(speed == target){
+				clearInterval(timer);
+
+				if(dir>0){
+					doMove(-7, 0);
+				}else{
+					doMove(7, oDiv2.offsetLeft-oDiv1.offsetWidth+num);
+				}
+			}else{
+				speed=oDiv1.offsetLeft+dir;
+				if(speed>=target && dir>0 || speed<=target && dir<0){
+					speed=target;
+				}
+				oDiv1.style.left=speed+'px';
+
+				if(speed+oDiv1.offsetWidth > oDiv2.offsetLeft){
+					oDiv2.style.left=speed+oDiv1.offsetWidth+'px';
+				}
+			}
+		}, 20);
+	}
+
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+</body>
+</html>

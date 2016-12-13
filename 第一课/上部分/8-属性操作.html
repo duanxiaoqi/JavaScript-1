@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta id="meta" http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+/*
+JS中需要注意的问题：
+1、JS中不允许出现“-”
+	http-equiv		httpEquiv
+	font-size		fontSize
+2、JS中有些单词碰不得：关键字、保留字
+	class   className
+3、相对路径，不要拿来做判断
+	 img src
+	 background:url
+	 a href
+4、id 不要改
+5、表单元素的 type 值别改：IE6 IE7 IE8 不支持
+6、
+
+*/
+
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+	var oImg=document.getElementById('img1');
+	
+	oBtn.onclick=function(){
+		//alert(oBtn.class);		//undefined未定义
+		//alert(oBtn.className);
+		
+		//alert(oImg.src);
+		//file:///Volumes/Macintosh%20HD/%E5%A6%99%E5%91%B3%E8%AF%BE%E5%A0%82/%E5%AD%A6%E5%91%98/2013-4-1-JS-leo/%E4%B8%8A%E5%8D%88/img/4.jpg
+		//if(oImg.src == 'img/4.jpg')
+	};
+};
+</script>
+
+</head>
+
+<body>
+
+<input id="btn1" class="red" type="button" value="按钮" />
+<br />
+<img id="img1" src="img/4.jpg" />
+
+</body>
+</html>

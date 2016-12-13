@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<ul>
+	<li>fajflaf1111<a href="javascript:;">隐藏</a></li>
+	<li>fajflaf2222<a href="javascript:;">隐藏</a></li>
+	<li>fajflaf3333<a href="javascript:;">隐藏</a></li>
+	<li>fajflaf4444<a href="javascript:;">隐藏</a></li>
+	<li>fajflaf5555<a href="javascript:;">隐藏</a></li>
+</ul>
+
+</body>
+</html>
+
+<script>
+
+var aA = document.getElementsByTagName('a');
+
+for(var i=0; i<aA.length; i++){
+	
+	aA[i].onclick = function(){
+	
+		this.parentNode.style.display = 'none';	
+		
+	};
+		
+}
+
+/*
+
+parentNode : 当前节点的上一层节点。 
+
+*/
+
+</script>

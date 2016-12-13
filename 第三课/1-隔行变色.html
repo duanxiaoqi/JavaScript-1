@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+window.onload=function(){
+	var oOl=document.getElementById('ol1');
+	for(var i=0; i<20; i++){
+		oOl.innerHTML+='<li></li>';
+	}
+	var aLi=oOl.getElementsByTagName('li');
+	var arrColor=['#ccc','#eee','#9972ea','#a1ed69'];
+	var sColor='';
+	var oldColor=[];
+	
+	//设置
+	for(var i=0; i<aLi.length; i++){
+		aLi[i].style.background=arrColor[ i%arrColor.length ];
+		//oldColor[i]=aLi[i].style.background;
+		oldColor.push(aLi[i].style.background);
+	}
+	//alert(oldColor);
+	
+	//事件
+	for(var i=0; i<aLi.length; i++){
+		aLi[i].n=true;
+		aLi[i].index=i;
+		aLi[i].onmouseover=fnOver;
+		aLi[i].onmouseout=fnOut;
+		aLi[i].onclick=fnClick;
+	}
+	
+	function fnOver(){
+		sColor=this.style.background;
+		this.style.background='yellow';
+	}
+	
+	function fnOut(){
+		this.style.background=sColor;
+	}
+	
+	function fnClick(){
+		if(this.n){
+			this.style.background='#000';
+			sColor='#000';
+			//this.n=false;
+		}else{
+			this.style.background=oldColor[this.index];
+			sColor=oldColor[this.index];
+			//this.n=true;
+		}
+		this.n=!this.n;
+	}
+};
+</script>
+
+</head>
+
+<body>
+
+<ol id="ol1"></ol>
+
+</body>
+</html>

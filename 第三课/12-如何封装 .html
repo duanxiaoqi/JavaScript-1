@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+//取一组数据
+function fnShakeNum(num){
+	var arr=[];
+	for(var i=num; i>0; i-=2){
+		arr.push(i);
+		arr.push(-i);
+	}
+	arr.push(0);
+	return arr;
+}
+
+//抖
+function fnShakeObj(obj, dir, n){
+	var timer=null;
+	var arr=fnShakeNum(n);	//[4,-4,2,-2,0]
+	var num=0;
+	var pos=0;
+	
+	if(dir=='left'){
+		pos=obj.offsetLeft;
+	}else if(dir=='top'){
+		pos=obj.offsetTop;
+	}
+	
+	timer=setInterval(function(){
+		if(num==arr.length){
+			clearInterval(timer);
+		}else{
+			obj.style[dir]=pos + arr[num]+'px';
+			num++;
+		}
+	}, 20);
+}
+
+
+//跑～
+function fnNode(obj, dir){
+	
+	var timer=null;
+	var speed=0;
+	
+	if(dir=='top'){
+		speed=obj.offsetTop;
+	}else if(dir=='left'){
+		speed=obj.offsetLeft;
+	}
+	
+	timer=setInterval(function(){
+		
+		if(speed==300){
+			clearInterval(timer);
+			obj.style.display='none';
+		}else{
+			speed+=10;
+			document.title=speed;
+			obj.style[dir]=speed+'px';
+		}
+	}, 20);
+}
+window.onload=function(){
+	
+	
+	/*
+		1、正常写你的代码，实现所有功能
+		2、套个函数的外壳，起一个靓丽的名儿
+		3、把函数里面会变的值拿出来，当参数
+	*/
+	
+	//fnNode(oDiv, 'left');
+	
+	
+	
+	var oBody=document.body;
+	
+	for(var i=0; i<10; i++){
+		oBody.innerHTML+='<div>'+i+'</div>';
+	}
+	
+	var aDiv=document.getElementsByTagName('div');
+	var arrColor=['red','yellow','blue','green','gray'];
+	var num=0;
+	
+	
+	
+	//生成元素
+	for(var i=0; i<aDiv.length; i++){
+		aDiv[i].style.width='50px';
+		aDiv[i].style.height='50px';
+		aDiv[i].style.background=arrColor[i%arrColor.length];
+		aDiv[i].style.position='absolute';
+		aDiv[i].style.top=0;
+		aDiv[i].style.left=i*55+'px';
+	}
+	
+	//fnNode(aDiv[num], 'left');
+	
+	//fnNode(aDiv[num], 'left');
+	var timer=null;
+	document.onclick=function(){
+		clearInterval(timer);
+		//开始依次跑……
+		timer=setInterval(function(){
+			if(num==aDiv.length){
+				clearInterval(timer);
+			}else{
+				fnNode(aDiv[num], 'top');
+				fnShakeObj(aDiv[num], 'left', 16)
+				num++;
+			}
+		}, 100);
+	};
+};
+
+</script>
+
+</head>
+
+<body>
+
+
+
+</body>
+</html>

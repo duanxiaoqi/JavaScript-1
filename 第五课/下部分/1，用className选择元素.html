@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<ul>
+	<li></li>
+	<li class="active"></li>
+	<li></li>
+	<li class="active"></li>
+	<li></li>
+</ul>
+
+<div>
+	<div class="active">fdsaf</div>
+</div>
+
+<p class="active">fdafljfldsa</p>
+
+</body>
+</html>
+
+<script>
+
+/*var aClass = document.getElementsByClassName('active');
+
+alert(aClass.length);
+
+for(var i=0; i<aClass.length; i++){
+	aClass[i].style.background = 'red';	
+}*/
+
+var aEles = document.getElementsByTagName("*");
+var arr = [];
+
+//alert(aEles.length);
+
+for(var i=0; i<aEles.length; i++){
+
+	if(aEles[i].className == 'active'){
+		arr.push(aEles[i]);	
+	}	
+	
+}
+
+//alert(arr.length);
+
+for(var i=0; i<arr.length; i++){
+	arr[i].style.background = 'green';	
+}
+
+
+//alert(aEles[0].tagName);
+
+/*
+
+ * ： 通配符  通配： 匹配所有
+
+*/
+
+
+</script>

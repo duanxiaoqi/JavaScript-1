@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function()
+{
+	var arr=[
+		['海南宣布不出台国五条细则 延续限购政策', '2013-4-2'],
+		['中国南海舰队训练编队遭遇外国军舰战机跟踪', '2013-4-1'],
+		['湖北巴东村民被碾死续：肇事者承认受人指使', '2013-3-30']
+	];
+	var oInput=document.getElementsByTagName('input')[0];
+	var oUl=document.getElementsByTagName('ul')[0];
+	var aSpan=document.getElementsByTagName('span')[0];
+	var acc=0;
+	oInput.onclick=function()
+	{
+		if(acc==0)
+		{
+			for(var i=0;i<arr.length;i++)
+			{
+
+				oUl.innerHTML+='<li>'+'<a href="javascript:;">'+arr[i][0]+'</a>'+'<span>'+arr[i][1]+'</span>'+'</li>';
+			}
+			var aLi=document.getElementsByTagName('li');
+			for(var i=0;i<aLi.length;i++)
+			{
+				aLi[i].index=i;
+				aLi[i].onclick=function()
+				{
+					alert('局势紧张，团结互助'+(this.index+1));
+				}
+			}
+		}
+		else if(acc==1)
+		{
+			aSpan.innerHTML='老大点一次就够了';
+		}
+		else if(acc==2)
+		{
+			aSpan.innerHTML='在点就跟你翻脸呢';
+		}
+		else
+		{
+			aSpan.innerHTML='靠，不理你了';
+		}
+		acc++;
+	};
+};
+//1、生成li里面的数据
+//2、扩展：考虑如何给每一个li添加点击事件～～
+//3、扩展：添加提示～～
+
+</script>
+</head>
+
+<body>
+
+<input type="button" value="btn1" /><span></span>
+<ul>
+	<!--
+	<li>
+    	<a href="#">海南宣布不出台国五条细则 延续限购政策</a>
+        <span>2013-4-2</span>
+    </li>
+    -->
+</ul>
+
+</body>
+</html>

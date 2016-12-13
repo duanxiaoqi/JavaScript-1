@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	var w=0;
+	aInput[1].onclick=function()
+	{
+		var a1=Number(aInput[0].value);
+		var a2=parseInt(aInput[0].value)+'';
+		if(isNaN(a1))
+		{
+			alert('不能输入非数字');
+		}
+		else if(aInput[0].value=='')
+		{
+			alert('不能为空');
+		}
+		else if(a2.length!=2)
+		{
+			alert('请输入两位数');
+		}
+		else
+		{
+			alert('输入正确');
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+请判断输入的是不是两位数：<input type="text" / >
+<input type="button" value="判断" />
+
+<br />
+<br />
+要求：<br />
+1、判断有没有输入<br />
+2、不能输入非数字<br />
+3、再判断这个数字是不是两位数<br />
+4、判断成功
+
+
+
+</body>
+</html>

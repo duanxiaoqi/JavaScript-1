@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#tab {border: 2px solid #333;}
+#tab td,#tab th {width: 200px; border: 1px solid #555; text-align: center;}
+</style>
+</head>
+
+<body>
+  
+  <table id="tab">
+  	<thead>
+    	<tr>
+      	<th>sss</th><th>ssss</th><th>ssss</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td>aaafd</td>
+        <td>fsafs</td>
+        <td>fdsadf</td>
+      </tr>
+    </tfoot>
+  	<tbody>
+      <tr>
+        <td>11111</td>
+        <td>11111</td>
+        <td>11111</td>
+      </tr>
+      <tr>
+        <td>11111</td>
+        <td>11111</td>
+        <td>11111</td>
+      </tr>
+      <tr>
+        <td>11111</td>
+        <td>11111</td>
+        <td>11111</td>
+      </tr>
+    </tbody>
+  	<tbody>
+      <tr>
+        <td>11111</td>
+        <td>11111</td>
+        <td>11111</td>
+      </tr>
+      <tr>
+        <td>11111</td>
+        <td>11111</td>
+        <td>11111</td>
+      </tr>
+      <tr>
+        <td>11111</td>
+        <td>11111</td>
+        <td>11111</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</body>
+</html>
+
+<script>
+
+var oTab = document.getElementById('tab');
+
+oTab.tHead.style.background = '#ccc';
+oTab.tFoot.style.background = '#9cf';
+oTab.tBodies[0].style.background = 'orange';
+
+oTab.rows[4].style.background = 'blue';
+oTab.tBodies[1].rows[1].style.background = 'red';
+
+
+//oTab.cells[18].style.background = 'green'; //不合法，只有ie支持
+
+oTab.rows[6].cells[1].style.background = 'yellow';
+
+/*
+
+表格：
+
+	tHead : 表头
+	
+	tFoot : 表底
+	
+	tBodies : 表格主体
+	
+	rows : 表格的行
+	
+	cells : 表格的单元格。
+
+
+*/
+
+</script>

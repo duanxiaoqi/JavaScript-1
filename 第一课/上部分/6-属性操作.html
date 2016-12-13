@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+//属性操作
+
+/*
+什么是属性？（基础课程中的定义）
+在HTML代码中，=号前面叫属性名，=号后面叫属性值
+
+操作个啥？
+1、读操作：获取、找到
+	 语法：元素.属性名
+
+2、写操作：修改、添加
+	 语法：元素.属性名=新的值
+
+
+*/
+
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+	var oT=document.getElementById('text1');
+	var oS=document.getElementById('select1');
+	
+	//alert('leo');
+	
+	//'leo' + '男'  'leo男'
+	
+	oBtn.onclick=function(){
+		alert(oT.value +' : '+ oS.value);
+	};
+};
+</script>
+
+</head>
+
+<body>
+
+<input id="text1" type="text" value="" />
+<select id="select1">
+	<option value="北京">北京</option>
+	<option value="上海">上海</option>
+	<option value="黑龙江">黑龙江</option>
+</select>
+<input id="btn1" type="button" value="按钮" />
+
+</body>
+</html>

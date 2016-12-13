@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1">
+    <li>
+        <h2>menu-1</h2>
+        <ul>
+            <li class="active">list-1</li>
+            <li>list-2</li>
+            <li>list-3</li>
+        </ul>
+    </li>
+    <li>
+        <h2>menu-2</h2>
+        <ul>
+            <li>list-1</li>
+            <li>list-2</li>
+            <li>list-3</li>
+            <li>list-4</li>
+        </ul>
+    </li>
+</ul>
+
+<ol id="ol1">
+    <li class="active">我是打酱油的，不要惹我～～</li>
+    <li>我是打酱油的，不要惹我～～</li>
+    <li>我是打酱油的，不要惹我～～</li>
+    <li>我是打酱油的，不要惹我～～</li>
+    <li>我是打酱油的，不要惹我～～</li>
+    <li>我是打酱油的，不要惹我～～</li>
+    <li>我是打酱油的，不要惹我～～</li>
+</ol>
+<script>
+    var ul1=document.getElementById('ul1');
+    var h=ul1.getElementsByTagName('h2');
+    var ul=ul1.getElementsByTagName('ul');
+    for(var i=0;i<h.length;i++){
+        h[i].open=true;
+        h[i].index=i;
+        h[i].onclick=function () {
+            this.open=!this.open;
+            if(this.open) {
+                ul[this.index].style.display='block';
+            } else {
+                ul[this.index].style.display='none';
+            }
+        }
+    }
+
+    for(var i=0;i<ul.length;i++){
+        ul[i].onclick=function () {
+            for(var i=0;i<ul.length;i++) {
+                ul[i].style.display='none';
+            }
+            this.style.display='block';
+        }
+    }
+    var num=0;
+    var ol=document.getElementById('ol1');
+    var li3=ol.getElementsByTagName('li');
+    var li1=ul[0].getElementsByTagName('li');
+    var li2=ul[1].getElementsByTagName('li');
+    for(var i=0;i<li1.length;i++){
+        li1[i].num=i;
+        li1[i].onclick=function () {
+            for(var i=0;i<li1.length;i++) {
+                li1[i].className = '';
+            }
+            this.className='active';
+            li3[num].className='';
+            li3[this.num].className='active';
+            ul[1].style.display='none';
+            num=this.num;
+        }
+    }
+
+    for(var i=0;i<li2.length;i++){
+        li2[i].num=i;
+        li2[i].onclick=function () {
+            for(var i=0;i<li2.length;i++) {
+                li2[i].className = '';
+            }
+            this.className='active';
+            li3[num].className='';
+            li3[this.num].className='active';
+            ul[0].style.display='none';
+            num=this.num;
+        }
+    }
+</script>
+</body>
+</html>

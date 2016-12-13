@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	
+	oDiv.onclick = function(){
+		
+		test.call(oDiv,'red');  //call前面的函数中的this跟call的第一个参数一样,从call的第二个参数开始就是函数的真正参数
+					
+	};
+	
+	function test(sColor){
+		this.style.background = sColor;
+	}
+	
+	
+	
+};
+</script>
+</head>
+
+<body>
+<div id="div1">aaaa</div>
+</body>
+</html>

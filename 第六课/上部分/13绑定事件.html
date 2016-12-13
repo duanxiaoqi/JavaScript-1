@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+//绑定的写法 : IE下 : attachEvent() : 第一个参数：什么事件,第二个参数：执行的函数
+//标准下 : addEventListener() : : 第一个参数：什么事件(不加on),第二个参数：执行的函数 ，第三个参数 : 一个布尔值 , false就是冒泡阶段 , true就是捕获阶段
+
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	
+	//oDiv.onclick = aaa;
+	//oDiv.onclick = bbb;
+	
+	//oDiv.attachEvent('onclick',aaa);
+	//oDiv.attachEvent('onclick',bbb);
+	
+	oDiv.addEventListener('click',aaa,false);
+	oDiv.addEventListener('click',bbb,false);
+	
+	function aaa(){
+		alert(123);
+	}
+	function bbb(){
+		alert(456);
+	}
+	
+};
+
+</script>
+</head>
+
+<body>
+<div id="div1">asdhjas</div>
+</body>
+</html>

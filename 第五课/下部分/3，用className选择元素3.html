@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<ul id="ul1">
+	<li></li>
+	<li class="active a e"></li>
+	<li></li>
+	<li class="b active c"></li>
+	<li></li>
+</ul>
+
+<div>
+	<div class="active">fdsaf</div>
+</div>
+
+<p class="active b">fdafljfldsa</p>
+
+</body>
+</html>
+
+<script>
+
+/*var aClass = document.getElementsByClassName('active');
+
+alert(aClass.length);
+
+for(var i=0; i<aClass.length; i++){
+	aClass[i].style.background = 'red';	
+}*/
+
+
+function getByClass(sClass,parent){
+	
+	var aEles = (parent||document).getElementsByTagName("*");
+	var arr = [];
+	
+	for(var i=0; i<aEles.length; i++){
+	
+		var aClass = aEles[i].className.split(' ');
+		
+		for(var j=0; j<aClass.length; j++){
+			
+			if(aClass[j] == sClass){
+				arr.push(aEles[i]);	
+				break;
+			}	
+			
+		}
+		
+	}
+	
+	return arr;
+}
+
+var oUl = document.getElementById('ul1');
+
+//var arr = getByClass('b');
+var arr = getByClass('active',oUl);
+//var arr = getByClass('active',document);
+//var arr = getByClass('active');
+
+for(var i=0; i<arr.length; i++){
+	arr[i].style.background = 'orange';	
+}
+
+
+</script>

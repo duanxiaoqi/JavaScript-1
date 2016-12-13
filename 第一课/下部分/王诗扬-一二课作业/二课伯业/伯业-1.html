@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	aInput[1].onclick=function()
+	{
+		var oVal=Number(aInput[0].value);
+		if(aInput[0].value=='')
+		{
+			alert('请输入数字');
+		}
+		else if(oVal.length<11)
+		{
+			alert('数字不能少于11位');
+		}
+		else if(isNaN(oVal))
+		{
+			alert('不能输入非数字');
+		}
+		else
+		{
+			alert('输入正确');
+		}
+	}
+}
+</script>
+
+</head>
+
+<body>
+
+请输入一个手机号码（11位）：<input type="text" />
+<input type="button" value="判断" />
+
+<br />
+<br />
+要求：<br />
+1、判断有没有输入<br />
+2、只能输入11位数字<br />
+3、不能输入非数字<br />
+4、判断成功
+
+
+
+</body>
+</html>

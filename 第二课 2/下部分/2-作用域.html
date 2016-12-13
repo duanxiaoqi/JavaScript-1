@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+fn1();				//4
+function fn1(){ alert(1); }
+fn1();				//4
+var fn1=function(){ alert(3); };
+fn1();				//3
+fn1();				//3
+var fn1=function(){ alert(2); };
+fn1();				//2
+function fn1(){ alert(4); }
+
+
+</script>
+
+</head>
+
+<body>
+</body>
+</html>

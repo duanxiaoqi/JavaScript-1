@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html id="h1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+body {margin: 0;}
+#div1 {width: 100px; padding: 10px; margin: 20px; border: 5px solid #333; height: 100px; background: red; display: none;}
+</style>
+</head>
+
+<body id="isBody">
+
+  <div id="div1"></div>
+
+</body>
+</html>
+
+<script>
+
+var oDiv1 = document.getElementById('div1');
+
+
+/*
+
+元素所占页面空间： width height padding margin border
+
+offsetWidth : width + padding + border
+offsetHeight: height + padding + border
+
+clientWidth : width + padding
+clientHeight : height + padding
+*/
+
+//alert(oDiv1.offsetWidth);
+
+//alert(oDiv1.clientWidth);
+
+
+// 注意： 以上四个属性都会受到 display 属性影响。
+
+</script>

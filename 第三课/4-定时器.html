@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+/*
+JS定时器：
+1、setInterval()	每隔一段时间，执行一些命令（重复执行 - 发动机）
+	 clearInterval()
+2、setTimeout()	过多久以后，执行一次（一次就完事 - 炸弹）
+	 clearTimeout()
+*/
+/*
+var timer=null;
+var n=0;
+timer=setInterval(function(){
+	if(n==10){
+		clearInterval(timer);
+	}else{
+		n++;
+		alert(n);  //10
+	}
+}, 1000);
+*/
+
+//alert( timer );
+
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	var oBtn=document.getElementsByTagName('input')[0];
+	
+	
+	//1、如果要开定时器，先考虑什么时候关掉！
+	//2、设置目标点，并且保证能到达目标点（限制）
+	//3、防止变态的用户狂点击
+
+	var n=0;
+	var timer=null;
+	var target=500;
+	
+	oBtn.onclick=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			if(n==target){
+				clearInterval(timer);
+				document.title=n;
+			}else{
+				n+=7;
+				if(n>=target){
+					n=target;
+				}
+				document.title=n;
+				oDiv.style.left=n+'px';
+			}
+		}, 20);
+	};
+};
+
+</script>
+<style>
+div { width:100px; height:100px; border:1px solid #333; position:absolute; top:40px; left:0; }
+</style>
+</head>
+
+<body>
+<input type="button" value="btn1" />
+<div id="div1"></div>
+
+</body>
+</html>

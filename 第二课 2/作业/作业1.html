@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+</head>
+<body>
+
+请输入一个手机号码（11位）：<input type="text" id="text"/>
+<input type="button" value="判断" id="button"/>
+
+<br />
+<br />
+要求：<br />
+1、判断有没有输入<br />
+2、只能输入11位数字<br />
+3、不能输入非数字<br />
+4、判断成功
+
+<script>
+    window.onload=function () {
+        var btn=document.getElementById('button');
+        btn.onclick=function () {
+
+            var text=document.getElementById('text');
+//            alert(parseInt(text.value));
+
+            if(text.value=='') {
+                alert('手机号不为空');
+            } else if (text.value.length<11||text.value.length>11) {
+                alert('手机号只能输入11位数字');
+            } else if (/\d{11}/.test(text.value)) {
+                alert('输入成功');
+
+            } else {
+                alert('手机号不能输入非数字');
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

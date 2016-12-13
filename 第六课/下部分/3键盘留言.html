@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+	var aInput = document.getElementsByTagName('input');
+	var oUl = document.getElementById('ul1');
+	
+	var bBtn1 = false;
+	var bBtn2 = false;
+	
+	aInput[0].onkeydown = function(ev){
+		var ev = ev || window.event;
+		/*if(ev.keyCode == 13 && ev.ctrlKey ){
+			var oLi = document.createElement('li');
+			oLi.innerHTML = this.value;
+			oUl.appendChild(oLi);
+		}*/
+		if(ev.keyCode == 13){
+			bBtn1 = true;
+		}
+		if(ev.keyCode == 17){
+			bBtn2 = true;
+		}
+		
+		if(bBtn1 && bBtn2){
+			var oLi = document.createElement('li');
+			oLi.innerHTML = this.value;
+			oUl.appendChild(oLi);
+		}
+		
+	};
+	
+	document.onkeyup = function(ev){
+		var ev = ev || window.event;
+
+		if(ev.keyCode == 13){
+			bBtn1 = true;
+		}
+		if(ev.keyCode == 17){
+			bBtn2 = true;
+		}
+
+
+		if(bBtn1 && bBtn2){
+			aLi[num+1].className ='active';
+
+			num++;
+			num %= aLi.length-1;
+		}
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<input type="text" /><input type="button" value="留言" />
+<ul id="ul1">
+</ul>
+</body>
+</html>

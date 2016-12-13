@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+	var aBtn=document.getElementsByTagName('input');
+	//alert( aBtn.length );
+	alert(aBtn[0].value);
+	alert(aBtn[1].value);
+	alert(aBtn[2].value);
+	//在使用的时候，必须加上[]  ——要是你敢不加，嘿嘿～～
+};
+</script>
+<style>
+#btn1 {}
+input {}
+</style>
+</head>
+
+<body>
+
+<input id="btn1" type="button" value="btn1" />
+<input type="button" value="btn2" />
+<input type="button" value="btn3" />
+
+</body>
+</html>

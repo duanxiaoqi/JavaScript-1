@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:100px;height:100px;position:absolute;left:0;top:0;background:red;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var bBtn1=false;
+	var bBtn2=false;
+	var bBtn3=false;
+	var bBtn4=false;
+	document.onkeydown=function(ev)
+	{
+		var ev=ev||event;
+		if(ev.keyCode==37)
+		{
+			oDiv.style.left=oDiv.offsetLeft-5+'px';
+			bBtn1=true;
+		}
+		if(ev.keyCode==38)
+		{
+			oDiv.style.top=oDiv.offsetTop-5+'px';
+			bBtn2=true;
+		}
+		if(ev.keyCode==39)
+		{
+			oDiv.style.left=oDiv.offsetLeft+5+'px';
+			bBtn3=true;
+		}
+		if(ev.keyCode==40)
+		{
+			oDiv.style.top=oDiv.offsetTop+5+'px';
+			bBtn4=true;
+		}
+		if(bBtn1&&bBtn2)
+		{
+			oDiv.style.left=oDiv.offsetLeft-5+'px';
+			oDiv.style.top=oDiv.offsetTop-5+'px';
+		}
+		if(bBtn2&&bBtn3)
+		{
+			oDiv.style.top=oDiv.offsetTop-5+'px';
+			oDiv.style.left=oDiv.offsetLeft+5+'px';
+		}
+		if(bBtn3&&bBtn4)
+		{
+			oDiv.style.left=oDiv.offsetLeft+5+'px';
+			oDiv.style.top=oDiv.offsetTop+5+'px';
+		}
+		if(bBtn4&&bBtn1)
+		{
+			oDiv.style.top=oDiv.offsetTop+5+'px';
+			oDiv.style.left=oDiv.offsetLeft-5+'px';
+		}
+	}
+
+	document.onkeyup=function(ev)
+	{
+		var ev=ev||event;
+		if(ev.keyCode==37)
+		{
+			bBtn1=false;
+		}
+		if(ev.keyCode==38)
+		{
+			bBtn2=false;
+		}
+		if(ev.keyCode==39)
+		{
+			bBtn3=false;
+		}
+		if(ev.keyCode==40)
+		{
+			bBtn4=false;
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

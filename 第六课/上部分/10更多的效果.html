@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#ul1{ width:200px; height:200px; border:1px #000 solid; display:none;}
+</style>
+<script>
+window.onload = function(){
+	var oInput = document.getElementById('input1');
+	var oUl = document.getElementById('ul1');
+	
+	oInput.onclick = function(ev){
+		var ev = ev || window.event;
+		oUl.style.display = 'block';
+		ev.cancelBubble = true;
+	};
+	
+	document.onclick = function(){
+		oUl.style.display = 'none';
+	};
+	
+	oUl.onclick = function(ev){
+		var ev = ev || window.event;
+		ev.cancelBubble = true;
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="更多" id="input1" />
+<ul id="ul1">
+	<li>111</li>
+    <li>111</li>
+    <li>111</li>
+</ul>
+</body>
+</html>

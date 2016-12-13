@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+function fn1(){
+		//alert(i);		//会报错
+	}
+window.onload=function(){
+	var aBtn=document.getElementsByTagName('input');
+	function fn1(){
+		alert(i);		//3
+	}
+	for(var i=0; i<aBtn.length; i++){
+		aBtn[i].onclick=fn1;
+	}
+
+};
+</script>
+</head>
+
+<body>
+
+<input type="button" value="btn1" />
+<input type="button" value="btn2" />
+<input type="button" value="btn3" />
+
+</body>
+</html>

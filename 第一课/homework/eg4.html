@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="btn1" /><span></span>
+<ul>
+</ul>
+<script>
+    window.onload=function () {
+        var btn=document.getElementsByTagName('input')[0];
+        var span=document.getElementsByTagName('span')[0];
+
+        var num=0;
+        btn.onclick=function () {
+            num++;
+            span.innerHTML=num;
+            var ul=document.getElementsByTagName('ul')[0];
+            var s=document.createElement('li');
+            s.innerText='段琦'+num;
+            ul.appendChild(s);
+            var li=ul.getElementsByTagName('li');
+            for(var i=0;i<li.length;i++){
+                li[i].onclick=function () {
+                    console.log(1);
+                    alert(this.innerHTML);
+                }
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        #div1 {
+            width: 200px;
+            height: 30px;
+            border: 1px solid red;
+            position: relative;
+        }
+
+        #div2 {
+            text-align: center;
+            line-height: 30px;
+            background-color: yellow;
+        }
+
+        #div3 {
+            width: 200px;
+            border: 1px  solid red;
+            position: absolute;
+            top: 30px;
+            left: -1px;
+            background-color: #FFC;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oDiv1=document.getElementById('div1');
+            var oDiv3=document.getElementById('div3');
+            oDiv1.onmouseover=function () {
+                oDiv3.style.display='block';
+            }
+
+            oDiv1.onmouseout=function () {
+                oDiv3.style.display='none';
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">我要买</div>
+    <ul id="div3">
+        <li>逛宝贝</li>
+        <li>翻专辑</li>
+        <li>生活私搭</li>
+        <li>商品分类</li>
+    </ul>
+</div>
+</body>
+</html>

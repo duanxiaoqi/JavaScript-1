@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+window.onload=function(){
+	var aInput=document.getElementsByTagName('input');
+	var a1=Number(aInput[0].value);
+	aInput[1].onclick=function(){
+		 if(a1>10)
+		{
+			alert('两位数');
+		}
+	};
+};
+</script>
+
+</head>
+
+<body>
+
+请输入一个手机号码（11位）：<input type="text" />
+<input type="button" value="判断" />
+
+<br />
+<br />
+要求：<br />
+1、判断有没有输入<br />
+2、只能输入11位数字<br />
+3、不能输入非数字<br />
+4、判断成功
+
+
+
+</body>
+</html>

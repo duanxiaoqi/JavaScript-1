@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+	<ul>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+    <li></li>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+    <li></li>
+  	<li></li>
+  </ul>
+  
+  
+
+</body>
+</html>
+
+<script>
+
+
+var oUl = document.getElementsByTagName('ul')[0];
+
+first(oUl).style.background = 'red';
+last(oUl).style.background = 'blue';
+
+next(first(oUl)).style.background = 'green';
+prev(last(oUl)).style.background = 'orange';
+
+
+function first(parent){
+	return 	parent.firstElementChild || parent.firstChild;
+}
+
+function last(parent){
+	return 	parent.lastElementChild || parent.lastChild;
+}
+
+function prev(obj){
+	return obj.previousElementSibling || obj.previousSibling;
+}
+
+function next(obj){
+	return obj.nextElementSibling || obj.nextSibling;
+}
+
+</script>

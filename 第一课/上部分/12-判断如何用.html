@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('next');
+	var oP=document.getElementById('p1');
+	var oImg=document.getElementById('img1');
+	
+	//数组 - 如果要放多个东西，用数组
+	var arr=[ 'img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg' ];
+	//alert(arr.length);	//长度
+	//alert(arr[0]);
+	
+	var arrText=[ '第一张图片', '第二张', '第三张', '最后一张' ];
+	
+	var n=0;		//如果某个值会变，用变量
+	
+	oBtn.onclick=function(){
+		//n=n+1;
+		//n+=1;
+		n++;
+		if(n==arr.length){
+			n=0;
+		}
+		//alert(arr[n]);
+		oImg.src=arr[n];
+		oP.innerHTML=arrText[n];
+	};
+	
+};
+</script>
+</head>
+
+<body>
+
+<input id="next" type="button" value="下一张" />
+<p id="p1">文字说明……</p>
+<img id="img1" src="img/1.jpg" />
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+body{font-size:12px;}
+h1{text-align:center;margin-top:130px;color:#ff0000}
+ul{width:320px;margin:0px auto;padding:0;font-size:14px;}
+ul li{line-height:40px;height:40px;}
+a{color:#6633ff;text-decoration:none;font-weight:bold;font-size:20px;display:block;line-height:35px;}
+.div1{width:300px;height:120px;border:2px solid #009900;background:#fffff0;padding:10px;position:absolute;left:0;top:0;cursor:pointer}
+.div1 p{float:left;width:180px;height:110px;margin:0;overflow:hidden;text-overflow:ellipsis;padding-right:10px;line-height:18px;}
+.div1 img{width:110px;height:110px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var aA=oUl.getElementsByTagName('a');
+	var oDiv=null;
+	var oP=null;
+	var oImg=null;
+	for(var i=0;i<aA.length;i++)
+	{
+		aA[i].index=i;
+		aA[i].onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			if(!oDiv)
+			{
+				oDiv=document.createElement('div');
+				oP=document.createElement('p');
+				oImg=document.createElement('img');
+			}		
+			oP.innerHTML=this.getAttribute('miaov');
+			oImg.src=this.getAttribute('imgs');
+			oDiv.className='div1';
+			oDiv.style.left=oEvent.clientX+'px';
+			oDiv.style.top=oEvent.clientY-oDiv.offsetHeight-10+'px';
+			document.body.appendChild(oDiv);
+			oDiv.appendChild(oP);
+			oDiv.appendChild(oImg);
+		}
+		aA[i].onmouseout=function(ev)
+		{
+			setTimeout(function()
+			{
+				document.body.removeChild(oDiv);
+			},260)
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<h1>妙味课堂2013年六大杰出导师</h1>
+<ul id="ul1">
+	<li><a href="javascript:;" miaov="前人人网高级JS工程师，专门负责人人网相册版块大数据量下的JS代码优化。
+	曾在各大知名IT公司任职，如：阿里巴巴、YOKA时尚……8年资深前端开发工作经验，
+	妙味课堂的第一位专职JS高级讲师、妙味创业合作伙伴之一。
+	目前负责妙味课堂所有高级课程与新课程研发，如HTML5、HTML5游戏、移动平台开发等……" imgs="img/4.png">妙味课堂高级讲师：杜鹏(杜杜)</a></li>
+	<li><a href="javascript:;" miaov="妙味课堂5号群（500人）、6号群（500人）管理员及妙味论坛管理员。
+	拥有扎实的前端根基，对硬件也研究多年。
+	为人热情、乐于分享、喜欢帮助他人，QQ群与论坛发言极其活跃，
+	回答问题高效迅捷，尤其擅长回复学员提出的各种'疑难杂症'式问题。
+	现任妙味课堂JS课程高级讲师。" imgs='img/1.png'>妙味课程高级讲师：王亮(亮仔)</a></li>
+	<li><a href="javascript:;" miaov="前图胜公司前端技术负责人，图胜公司的前端从他1人开始，
+独立为公司搭建起整个前端部门，并带领团队完成多个大、中型项目开发工作。
+对公司的前端规范、项目实践、后期维护等整套流程有多年的实际工作经验。
+现任妙味课堂前端开发课程讲师，并为妙味课程的规范流程进行不断改进，
+以使课程更符合各大公司的实际工作需求。" imgs="img/2.png">前端开发讲师：张森(帅森)</a></li>
+	<li><a href="javascript:;" miaov="资深PHP程序员，曾独立开发CMS系统。
+	对前端开发有极大热情，尤其是在AJAX数据交互方面，
+	有着复杂而深入的项目实践经验。
+	钟毅为人性情温和、对教学工作有极大的耐心，
+	现任妙味课堂JS课程高级讲师。" imgs="img/3.png">妙味课程高级讲师：钟毅(毅毅)</a></li>
+	<li><a href="#" miaov="妙味课堂创始人之一，前端开发的相关技术掌握娴熟、功底扎实，
+	教学态度耐心细致，为人谦逊，处事低调，
+	与之接触学员均对其赞赏有加，亲切称其为'莫莫'。
+	在妙味课堂负责XHTML+CSS2及CSS3整套课程研发与教学质量监管等事宜。" imgs='img/5.png'>妙味课堂高级讲师：莫涛(莫莫)</a></li>
+	<li><a href="#" miaov="WEB 前端开发工程师(5年)、CSS 精品课程讲师(3年)，妙味课堂创始人；
+	曾任北京科尔威视、ShopEx 北京营销中心 ECMall 项目前端架构师；
+	精通 XHTML+CSS 架构，深刻理解 W3C 标准，熟练掌握系统的浏览器兼容性解决方案，
+	擅长大型网站前端架构及调试各类页面错位等诸多兼容性问题的疑难杂症；
+	专注于网站用户体验性研究，并在视频、电子商城、教育平台、企业级应用站点拥有数量庞大的案例和多年实战经验；
+	" imgs="img/6.png">妙味课堂高级讲师：刘伟(Leo)</a></li>
+	
+</ul>
+</body>
+</html>

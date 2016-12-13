@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+
+<script>
+
+/*
+
+// xml  json
+
+*/
+
+//var arr = [1,2,3,4];
+
+var arr = [100,200,100,200];
+
+var json = {left: 100, top: 200,'1': 'abc'};
+
+var arr2 = [{left: 100, top: 200},{left: 100, top: 200}];
+
+/*var a = 123;
+var b = 'abc';
+var c = true;*/
+
+var json3 = {left: 200, top: 300};
+
+var json4 = {a: 123, b: 'abc', c: true, d: function(){ alert('abc'); }};
+
+
+//alert(json4.d);
+
+//json4.d();
+
+var json5 = {a: [{b: [{c: [1,2,3,4]}]}]};
+
+alert(json5.a[0].b[0].c[2]);
+
+
+/*
+
+{left: 100, top: 200}
+
+{left: 100px; top: 100px; left: 200px;}
+
+
+obj.style.top / obj['style']['top']
+
+
+
+*/
+
+//alert(json.top);
+//alert(json['left']);
+
+//alert(json['1']); // 绝对反对使用。
+
+/*
+
+json : 
+
+	访问： . 或 ['']。
+
+
+*/
+
+
+</script>

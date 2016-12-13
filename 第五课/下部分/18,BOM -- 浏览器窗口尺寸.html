@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body style="width: 2000px; height: 3000px;">
+</body>
+</html>
+
+
+<script>
+
+// 可视区的宽度 可视区的高度
+//alert(document.documentElement.clientWidth); 
+//alert(document.documentElement.clientHeight);
+
+document.onclick = function(){
+	
+	//alert(document.body.scrollTop);
+	//alert(document.body.scrollLeft);
+
+	//alert(document.documentElement.scrollTop);
+	
+	var scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+	
+	alert(scrollTop);
+}
+</script>

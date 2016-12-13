@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#tab {border: 2px solid #333; text-align: center;}
+
+#tab th,#tab td {width: 200px; border: 1px solid #555; overflow: auto;}
+</style>
+</head>
+
+<body>
+
+<table id="tab">
+	<thead>
+    <tr>
+      <th><input type="checkbox" /></th><th>序号</th><th>姓名</th><th>年龄</th><th>操作</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+  </tbody>
+    
+</table>
+
+</body>
+</html>
+
+<script>
+
+var aData = [
+
+	{name: 'leo', age: 31},
+	{name: 'dudu', age: 25},
+	{name: 'momo', age: 24},
+	{name: 'zmouse', age: 27},
+	{name: 'zhunyan', age: 30}
+	
+];
+
+var oTab = document.getElementById('tab');
+var oBody = oTab.tBodies[0];
+var aRows = oBody.rows;
+var arr = ['#ccc','#eee'];
+var aA = oBody.getElementsByTagName('a');
+
+for(var i=0; i<aData.length; i++){
+
+	var oTr = document.createElement('tr');
+	
+	var oTd1 = document.createElement('td');
+	var oTd2 = document.createElement('td');
+	var oTd3 = document.createElement('td');
+	var oTd4 = document.createElement('td');
+	var oTd5 = document.createElement('td');
+	
+	oTd1.innerHTML = "<input type='checkbox' />";
+	oTd2.innerHTML = i+1;
+	oTd3.innerHTML = aData[i].name;
+	oTd4.innerHTML = aData[i].age;
+	oTd5.innerHTML = "<a href='javascript:;'>删除</a>";
+	
+	oTr.appendChild(oTd1);
+	oTr.appendChild(oTd2);
+	oTr.appendChild(oTd3);
+	oTr.appendChild(oTd4);
+	oTr.appendChild(oTd5);
+	
+	oBody.appendChild(oTr);
+	
+}
+
+for(var i=0; i<aRows.length; i++){
+	aRows[i].index = i;
+	aRows[i].style.background = arr[i%arr.length];
+}
+
+for(var i=0; i<aA.length; i++){
+
+	aA[i].onclick = function(){
+	
+		oBody.removeChild(this.parentNode.parentNode);	
+		
+	};
+	
+}
+
+
+var oChk = oTab.getElementsByTagName('input')[0];
+var aClkAll = oBody.getElementsByTagName('input');
+oChk.onclick = function(){
+	
+	for(var i=0; i<aClkAll.length; i++){
+		var _that = aClkAll[i].parentNode.parentNode;
+		
+		aClkAll[i].checked = this.checked;
+		
+		_that.style.background = this.checked ? 'orange' : arr[_that.index%arr.length];
+			
+	}
+};
+var n=0;
+for(var i=0;i<aClkAll.length;i++)
+{
+	aClkAll[i].index=i;
+	aClkAll[i].onclick=function()
+	{
+		if(this.checked)
+		{
+			n++;
+			if(n==aClkAll.length)
+			{
+				for(var i=0;i<aClkAll.length;i++)
+				{
+					aClkAll[i].parentNode.parentNode.style.background='orange';
+				}
+			}
+		}
+		else
+		{
+			n--;
+			//alert(n)
+			if(n<aClkAll.length)
+			{
+				for(var i=0;i<aClkAll.length;i++)
+				{
+					aClkAll[i].parentNode.parentNode.style.background=arr[i%arr.length];
+				}
+			}
+		}
+	}
+}
+
+/*
+
+练习： 如果手动的全选，一样也要把所有的行高亮。如果手动取消全选状态下的任意一个勾，全选状态就消失。
+
+
+*/
+
+</script>

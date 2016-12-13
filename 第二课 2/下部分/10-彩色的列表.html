@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script>
+window.onload=function(){
+	var aColor=['red', 'yellow', 'green', '#ccc'];
+	var aLi=document.getElementsByTagName('li');
+	var sColor='';
+	
+	for(var i=0; i<aLi.length; i++){
+		aLi[i].style.background=aColor[i%aColor.length];
+		aLi[i].onmouseover=fnOver;
+		aLi[i].onmouseout=fnOut;
+	}
+	function fnOver(){
+		sColor=this.style.background;
+		this.style.background='blue';
+	}
+	function fnOut(){
+		this.style.background=sColor;
+	}
+};
+</script>
+</head>
+
+<body>
+
+鼠标点下去的时候，变个黑色。鼠标移开时，还是黑色；<br />
+如果鼠标再点那个黑色，颜色又会恢复到最初的样子<br />
+<br /><br />
+移开的时候，要注意判断变成什么样<br />
+点击的时候，每个li应该有单独的开关
+
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+
+</body>
+</html>

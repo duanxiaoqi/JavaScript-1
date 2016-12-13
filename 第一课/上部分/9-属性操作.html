@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta id="meta" http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+/*
+JS中需要注意的问题：
+1、JS中不允许出现“-”
+	http-equiv		httpEquiv
+	font-size		fontSize
+2、JS中有些单词碰不得：关键字、保留字
+	class   className
+3、相对路径，不要拿来做判断
+	 img src
+	 background:url
+	 a href
+4、id 不要改
+5、表单元素的 type 值别改：IE6 IE7 IE8 不支持
+6、oDiv.style.width							本质是读取行间的样式
+     oDiv.style.width='300px';				本质是在行间“添加、修改”样式
+
+*/
+
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+	var oDiv=document.getElementById('div1');
+	
+	oBtn.onclick=function(){
+		alert(oDiv.style.width);		//读不到
+		oDiv.style.width='300px';
+		alert(oDiv.style.width);		//也读不到
+	};
+};
+</script>
+<style>
+#div1 { width:100px; height:100px; background:red; }
+</style>
+</head>
+
+<body>
+
+<input id="btn1" class="red" type="button" value="按钮" />
+<div id="div1"></div>
+
+</body>
+</html>

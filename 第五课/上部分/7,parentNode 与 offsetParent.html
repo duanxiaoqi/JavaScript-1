@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html id="h1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+body {margin: 0;}
+div {float: left;}
+#div1 {padding: 50px; background: green; position: relative; margin: 30px;}
+#div2 {padding: 50px; background: pink; position: relative;}
+#div3 {width: 100px; height: 100px; background: red; position: relative;}
+</style>
+</head>
+
+<body id="isBody">
+
+  <div id="div1">
+    <div id="div2">
+      <div id="div3"></div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<script>
+
+var oDiv3 = document.getElementById('div3');
+var oHtml = document.getElementById('h1');
+
+oDiv3.onclick = function(){
+
+	//alert(this.parentNode.id);	
+	//alert(this.offsetParent.id);	
+	//alert(oHtml.offsetParent);
+	
+	alert(this.offsetLeft);	
+	
+};
+
+/*
+
+parentNode : 当前节点的上一层节点。
+
+offsetParent : 当前节点上面最近的一个有定位属性的节点。（static属性除外）
+
+
+offsetLeft : 当前节点左外边框到定位父级的左内边框之间的距离。
+
+offsetTop : 当前节点上外边框到定位父级的上内边框之间的距离。
+
+	注意： 没有 offsetRight 和 offsetBottom !!!~~
+	
+	
+
+
+*/
+
+
+</script>

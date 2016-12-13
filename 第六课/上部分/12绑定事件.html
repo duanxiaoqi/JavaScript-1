@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+//普通事件 : 同一个元素,加同样的事件,但是执行不同的函数，后面的函数会把前面的函数覆盖
+
+//绑定事件 : 不会覆盖
+
+window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	
+	oDiv.onclick = aaa;
+	oDiv.onclick = bbb;
+	
+	function aaa(){
+		alert(123);
+	}
+	function bbb(){
+		alert(456);
+	}
+	
+};
+
+window.onload = function(){};
+
+</script>
+</head>
+
+<body>
+<div id="div1">asdhjas</div>
+</body>
+</html>

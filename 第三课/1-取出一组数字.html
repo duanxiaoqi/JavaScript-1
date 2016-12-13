@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+
+<script>
+alert(fn1(16));	//[6, -6, 4, -4, 2, -2, 0]
+
+function fn1(num){
+	var arr=[];
+	for(var i=num; i>0; i-=2){
+		arr.push(i);
+		arr.push(-i);
+	}
+	arr.push(0);
+	return arr;
+}
+</script>
+
+</head>
+
+<body>
+</body>
+</html>
